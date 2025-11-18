@@ -274,14 +274,187 @@
     <p class="captcha-error" id="captcha-error"></p>
   </div>
   <script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-	<!-- Simple one-time captcha modal -->
+  // Footer year
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
+  // One-time captcha + human verification
+  (function () {
+    const HUMAN_KEY = "humanVerified";
+    let isHuman = sessionStorage.getItem(HUMAN_KEY) === "true";
+    let pendingCallback = null;
+
+    const backdrop = document.getElementById("captcha-backdrop");
+    const questionEl = document.getElementById("captcha-question");
+    const answerInput = document.getElementById("captcha-answer");
+    const errorEl = document.getElementById("captcha-error");
+    const submitBtn = document.getElementById("captcha-submit");
+    const cancelBtn = document.getElementById("captcha-cancel");
+
+    function applyHumanFlag() {
+      isHuman = true;
+      sessionStorage.setItem(HUMAN_KEY, "true");
+      document.body.classList.add("human-verified");
+    }
+
+    // If already verified this session, unlock immediately
+    if (isHuman) {
+      applyHumanFlag();
+    }
+
+    let correctAnswer = null;
+
+    function generateQuestion() {
+      const a = Math.floor(Math.random() * 6) + 3; // 3–8
+      const b = Math.floor(Math.random() * 6) + 3; // 3–8
+      correctAnswer = String(a + b);
+      questionEl.textContent = `What is ${a} + ${b}?`;
+      answerInput.value = "";
+      errorEl.textContent = "";
+    }
+
+    function openCaptcha(callback) {
+      if (isHuman) {
+        // already verified, just run the callback
+        if (callback) callback();
+        return;
+      }
+
+      pendingCallback = callback || null;
+      generateQuestion();
+      backdrop.classList.add("active");
+      backdrop.setAttribute("aria-hidden", "false");
+      setTimeout(() => answerInput.focus(), 50);
+    }
+
+    function closeCaptcha() {
+      backdrop.classList.remove("active");
+      backdrop.setAttribute("aria-hidden", "true");
+    }
+
+    if (submitBtn && cancelBtn && backdrop) {
+      submitBtn.addEventListener("click", () => {
+        const userAnswer = (answerInput.value || "").trim();
+        if (userAnswer === correctAnswer) {
+          applyHumanFlag();
+          closeCaptcha();
+          if (pendingCallback) {
+            const cb = pendingCallback;
+            pendingCallback = null;
+            cb();
+          }
+        } else {
+          errorEl.textContent = "That answer wasn't quite right. Try again.";
+        }
+      });
+
+      cancelBtn.addEventListener("click", () => {
+        pendingCallback = null;
+        closeCaptcha();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && backdrop.classList.contains("active")) {
+          pendingCallback = null;
+          closeCaptcha();
+        }
+      });
+    }
+
+    // Helper: gate an action behind captcha
+    function requireHuman(callback) {
+      if (isHuman) {
+        if (callback) callback();
+      } else {
+        openCaptcha(callback);
+      }
+    }
+
+    // === Attach to triggers ===
+
+    // 1) View Phone hover/tap (phone-cover)
+    const phoneCover = document.querySelector(".phone-hover-wrapper .phone-cover");
+    if (phoneCover) {
+      const phoneTrigger = (e) => {
+        if (!isHuman) {
+          // Stop click/tap from doing anything else
+          if (e.type === "click" || e.type === "touchstart") {
+            e.preventDefault();
+          }
+          requireHuman(() => {
+            // After verification, user can just hover normally
+          });
+        }
+      };
+
+      phoneCover.addEventListener("mouseenter", phoneTrigger);
+      phoneCover.addEventListener("click", phoneTrigger);
+      phoneCover.addEventListener("touchstart", phoneTrigger, { passive: false });
+    }
+
+    // 2) Email beside phone
+    const heroEmail = document.getElementById("hero-email");
+    if (heroEmail) {
+      heroEmail.addEventListener("click", (e) => {
+        if (!isHuman) {
+          e.preventDefault();
+          const href = heroEmail.href;
+          requireHuman(() => {
+            window.location.href = href;
+          });
+        }
+      });
+    }
+
+    // 3) "Contact me" button
+    const contactBtn = document.getElementById("contact-me-btn");
+    if (contactBtn) {
+      contactBtn.addEventListener("click", (e) => {
+        if (!isHuman) {
+          e.preventDefault();
+          const href = contactBtn.getAttribute("href");
+          requireHuman(() => {
+            if (href && href.startsWith("#")) {
+              const target = document.querySelector(href);
+              if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+              }
+            } else if (href) {
+              window.location.href = href;
+            }
+          });
+        }
+      });
+    }
+
+    // 4) "Get in touch" button
+    const getInTouchBtn = document.getElementById("get-in-touch-btn");
+    if (getInTouchBtn) {
+      getInTouchBtn.addEventListener("click", (e) => {
+        if (!isHuman) {
+          e.preventDefault();
+          const href = getInTouchBtn.getAttribute("href");
+          requireHuman(() => {
+            if (href && href.startsWith("#")) {
+              const target = document.querySelector(href);
+              if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+              }
+            } else if (href) {
+              window.location.href = href;
+            }
+          });
+        }
+      });
+    }
+  })();
+</script>
 </div>
 </body>
 </html>
+
 
 
 
