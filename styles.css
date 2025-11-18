@@ -256,23 +256,23 @@ body {
   z-index: 5;
 }
 
-/* Hover / hold: reveal + glitch */
-.phone-hover-wrapper:hover .phone-cover,
-.phone-hover-wrapper:active .phone-cover {
+/* Hover / hold: reveal + glitch – only after captcha */
+.human-verified .phone-hover-wrapper:hover .phone-cover,
+.human-verified .phone-hover-wrapper:active .phone-cover {
   opacity: 0;
   transform: translateY(-1px);
 }
 
-.phone-hover-wrapper:hover .phone-number,
-.phone-hover-wrapper:active .phone-number {
+.human-verified .phone-hover-wrapper:hover .phone-number,
+.human-verified .phone-hover-wrapper:active .phone-number {
   opacity: 1;
   animation: phone-glitch 280ms steps(2, end);
 }
 
-.phone-hover-wrapper:hover .phone-number::before,
-.phone-hover-wrapper:hover .phone-number::after,
-.phone-hover-wrapper:active .phone-number::before,
-.phone-hover-wrapper:active .phone-number::after {
+.human-verified .phone-hover-wrapper:hover .phone-number::before,
+.human-verified .phone-hover-wrapper:hover .phone-number::after,
+.human-verified .phone-hover-wrapper:active .phone-number::before,
+.human-verified .phone-hover-wrapper:active .phone-number::after {
   animation: phone-glitch-offset 320ms steps(2, end) forwards;
 }
 
@@ -810,5 +810,6 @@ body {
     flex-direction: column;
   }
 }
+
 
 
