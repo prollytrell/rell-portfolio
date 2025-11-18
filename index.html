@@ -255,6 +255,32 @@
     // Set current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+	<!-- Simple one-time captcha modal -->
+<div class="captcha-backdrop" id="captcha-backdrop" aria-hidden="true">
+  <div class="captcha-modal">
+    <h2 class="captcha-title">Quick human check</h2>
+    <p class="captcha-text">
+      Before you get in touch, please answer this:
+    </p>
+    <p class="captcha-question" id="captcha-question"></p>
+
+    <input
+      type="text"
+      id="captcha-answer"
+      class="captcha-input"
+      placeholder="Type your answer"
+      autocomplete="off"
+    />
+
+    <div class="captcha-actions">
+      <button class="btn primary-btn" id="captcha-submit">Verify</button>
+      <button class="btn ghost-btn" id="captcha-cancel">Cancel</button>
+    </div>
+
+    <p class="captcha-error" id="captcha-error"></p>
+  </div>
+</div>
 </body>
 </html>
+
 
