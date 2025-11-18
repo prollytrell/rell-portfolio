@@ -250,13 +250,7 @@
       <span>GRC • Risk • Privacy • Security Operations</span>
     </div>
   </footer>
-
-  <script>
-    // Set current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-	<!-- Simple one-time captcha modal -->
-<div class="captcha-backdrop" id="captcha-backdrop" aria-hidden="true">
+  <div class="captcha-backdrop" id="captcha-backdrop" aria-hidden="true">
   <div class="captcha-modal">
     <h2 class="captcha-title">Quick human check</h2>
     <p class="captcha-text">
@@ -279,8 +273,15 @@
 
     <p class="captcha-error" id="captcha-error"></p>
   </div>
+  <script>
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+	<!-- Simple one-time captcha modal -->
+
 </div>
 </body>
 </html>
+
 
 
