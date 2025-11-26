@@ -28,39 +28,192 @@
   </header>
 
   <main>
-    <!-- Blog hero -->
-    <section class="hero hero-compact blog-hero">
-      <div class="container">
-      <p class="hero-kicker">BLOG • RESEARCH</p>
-      <h1 class="hero-title">Governance, Risk, and Compliance with Artificial Intelligence</h1>
-      <p class="hero-subtitle">
-      Building a framework for responsible enterprise AI: aligning governance, risk management, and compliance with
-      emerging AI risks, regulations, and ethical expectations.
-      </p>
+  <section class="section">
+    <div class="container blog-layout">
+      <div class="blog-list">
 
-    <div class="blog-meta">
-      <span>By Terrell Grenyion</span>
-      <span class="divider">•</span>
-      <span>2025</span>
-      <span class="divider">•</span>
-      <span>~10–12 min read</span>
-    </div>
+        <!-- Blog Article 2 (most recent) -->
+        <article class="blog-card">
+          <header class="blog-card-header">
+            <p class="hero-kicker">BLOG • INVESTIGATION</p>
+            <h1 class="hero-title">Breaking Down a Strange reCAPTCHA Event I Looked Into Recently</h1>
+            <p class="hero-subtitle">
+              A closer look at how a normal-looking reCAPTCHA event was tied to obfuscated scripts, silent PowerShell
+              activity, and persistence techniques that only really made sense once the full timeline was laid out.
+            </p>
 
-    <div class="blog-toggle-row">
-      <button id="blog-toggle" class="btn ghost-btn blog-toggle-btn">
-        Read more
-      </button>
-    </div>
-  </div>
-</section>
+            <div class="blog-meta">
+              <span>By Terrell Grenyion</span>
+              <span class="divider">•</span>
+              <span>2025</span>
+              <span class="divider">•</span>
+              <span>~4–6 min read</span>
+            </div>
 
-    <!-- Blog content -->
-    <!-- Blog Article 1 -->
-    <section class="section">
-     <div class="blog-expand-wrapper" id="blog-expand-wrapper" aria-expanded="false">
-      <div class="container blog-layout">
-        <article class="blog-article">
-          <section class="article-section">
+            <div class="blog-toggle-row">
+              <button class="btn ghost-btn blog-toggle-btn" data-expand-target="article-2-wrapper">
+                Read more
+              </button>
+            </div>
+          </header>
+
+          <div class="blog-expand-wrapper" id="article-2-wrapper" aria-expanded="false">
+            <article class="blog-article">
+              <!-- Blog Article 2 -->
+              <section class="article-section">
+                <h2>Breaking Down a Strange reCAPTCHA Event I Looked Into Recently</h2>
+                <p>
+                  I ran into an interesting situation involving a real Google reCAPTCHA that turned into something much
+                  bigger once I started going through the activity around it. A user landed on a page they believed was
+                  part of their normal workflow, and the site even presented a real reCAPTCHA. Nothing stood out at
+                  first. The iframe loaded the same way it would on any other site.
+                </p>
+                <p>
+                  The part that made me stop and look again was everything tied to what happened after that interaction.
+                  The timing lined up with behavior that didn’t feel normal, and the deeper I went, the more the pattern
+                  started to make sense.
+                </p>
+              </section>
+
+              <section class="article-section">
+                <h2>What the Logs Showed</h2>
+                <p>
+                  The first thing that stood out was an obfuscated script reaching out to a malicious site. It was
+                  written in a way that tried to hide what it was doing, but once you start breaking it apart, the intent
+                  becomes clear. After that initial step, I noticed callbacks to suspicious IPs and URLs and references
+                  to PHP commands. Some of the traffic pointed back to klick-style URLs, which helped line up the moment
+                  the user interacted with the page.
+                </p>
+                <p>
+                  While I worked through the telemetry, the system activity started to form a common attack pattern.
+                  There were silent and headless PowerShell executions. Files were being downloaded, run, then deleted
+                  right after. That type of create–execute–delete behavior is something you see often when an attacker
+                  wants the action without the evidence left behind. There were also scheduled tasks created for
+                  persistence, which tied everything together.
+                </p>
+                <p>
+                  None of these things on their own would immediately scream reCAPTCHA trouble. The reCAPTCHA was real.
+                  The page looked real. The activity was quiet. But putting them together removed the guesswork.
+                </p>
+              </section>
+
+              <section class="article-section">
+                <h2>Why the Timing Mattered So Much</h2>
+                <p>
+                  One thing that stood out was how fast everything moved once the user interacted with the page. No
+                  credentials were typed. The browser already had a valid session, and the attacker used that
+                  opportunity. When you lay out the sequence by timestamp, it becomes much easier to see how normal user
+                  behavior can blend into attacker behavior in a matter of seconds.
+                </p>
+                <p>
+                  That is what made the reCAPTCHA moment important. It wasn’t the problem. It was the timing window the
+                  attacker used.
+                </p>
+              </section>
+
+              <section class="article-section">
+                <h2>The Indicators That Pulled It All Together</h2>
+                <p>
+                  The main things that helped confirm what was happening were consistent. On their own, each one was
+                  suspicious. Together, they told a clear story.
+                </p>
+                <ul class="project-bullets">
+                  <li>Obfuscated script activity with outbound calls</li>
+                  <li>Silent or headless PowerShell execution</li>
+                  <li>Sudden scheduled tasks that no user created</li>
+                  <li>Malicious or suspicious URLs in the callback chain</li>
+                  <li>Files that appear briefly, execute, and then disappear</li>
+                </ul>
+                <p>
+                  Each of these pieces pointed in the same direction, and the timeline supported it. Once the activity
+                  was laid out step by step, the attack path stopped being a guess and became something you could clearly
+                  explain.
+                </p>
+              </section>
+
+              <section class="article-section">
+                <h2>How to Respond</h2>
+                <p>
+                  Situations like this always call for a full cleanup. You want to revoke sessions, reset credentials and
+                  MFA, isolate the device, block the malicious URLs and IPs, and check for anything that might allow the
+                  attacker back in. That includes scheduled tasks, browser extensions, stored sessions, and anything else
+                  that could have been manipulated.
+                </p>
+                <p>
+                  The user side matters too. Even when something looks familiar, like a real reCAPTCHA on a normal page,
+                  there’s value in slowing down, checking URLs, and avoiding links that fall outside of expected
+                  workflows. Conditional access, EDR controls, and tighter rules around script-based execution go a long
+                  way here when an attacker is trying to quietly abuse an existing session instead of stealing credentials
+                  outright.
+                </p>
+              </section>
+
+              <section class="article-section">
+                <h2>Skills I Sharpened While Working Through It</h2>
+                <p>
+                  I had to pull from different areas to break everything down. Threat analysis and narrowing my queries
+                  helped focus on the right parts of the telemetry instead of getting lost in the noise. Deobfuscating
+                  scripts and reviewing persistence behavior played a big role in understanding what the attacker wanted
+                  to accomplish and how they tried to hide it.
+                </p>
+                <p>
+                  Understanding session and token behavior helped confirm the hijacking attempts and why the attacker
+                  didn’t need the user to type anything. I also spent time verifying indicators through OSINT and
+                  checking domain and IP reputations.
+                </p>
+                <p>
+                  One thing I appreciated was being able to use locally run AI tools to analyze some of the obfuscated
+                  commands. It kept sensitive data off third-party services and saved time.
+                </p>
+              </section>
+
+              <section class="article-section">
+                <h2>Final Thoughts</h2>
+                <p>
+                  This whole situation reminded me that attackers hide in normal-looking activity more often than people
+                  realize. Everything seems fine until you line up the user action with what the system did next. That’s
+                  when the picture becomes clear.
+                </p>
+                <p>
+                  It also showed how fast a session can be misused without the user typing anything. Even controls we
+                  trust, like reCAPTCHA, can fit into an attack chain if someone knows how to use the timing to their
+                  advantage. This was a solid learning experience and a good reminder to always look at behavior patterns
+                  instead of isolated events.
+                </p>
+              </section>
+              <!-- Blog Article 2 End -->
+            </article>
+          </div>
+        </article>
+
+        <!-- Blog Article 1 (AI GRC white paper) -->
+        <article class="blog-card">
+          <header class="blog-card-header">
+            <p class="hero-kicker">BLOG • RESEARCH</p>
+            <h1 class="hero-title">Governance, Risk, and Compliance with Artificial Intelligence</h1>
+            <p class="hero-subtitle">
+              Building a framework for responsible enterprise AI: aligning governance, risk management, and compliance
+              with emerging AI risks, regulations, and ethical expectations.
+            </p>
+
+            <div class="blog-meta">
+              <span>By Terrell Grenyion</span>
+              <span class="divider">•</span>
+              <span>2025</span>
+              <span class="divider">•</span>
+              <span>~10–12 min read</span>
+            </div>
+
+            <div class="blog-toggle-row">
+              <button class="btn ghost-btn blog-toggle-btn" data-expand-target="article-1-wrapper">
+                Read more
+              </button>
+            </div>
+          </header>
+
+          <div class="blog-expand-wrapper" id="article-1-wrapper" aria-expanded="false">
+            <article class="blog-article">
+              <section class="article-section">
             <h2>Abstract</h2>
             <p>
               As artificial intelligence (AI) becomes more integrated into business operations, traditional governance,
@@ -486,135 +639,15 @@
               thinking. Final responsibility for the analysis, arguments, and conclusions remains with the author.
             </p>
           </section>
-                    <!-- Blog Article 1 End -->
-                    <!-- Blog Article 2 -->
-          <section class="article-section">
-            <h2>Breaking Down a Strange reCAPTCHA Event I Looked Into Recently</h2>
-            <p>
-              I ran into an interesting situation involving a real Google reCAPTCHA that turned into something much
-              bigger once I started going through the activity around it. A user landed on a page they believed was part
-              of their normal workflow, and the site even presented a real reCAPTCHA. Nothing stood out at first. The
-              iframe loaded the same way it would on any other site.
-            </p>
-            <p>
-              The part that made me stop and look again was everything tied to what happened after that interaction.
-              The timing lined up with behavior that didn’t feel normal, and the deeper I went, the more the pattern
-              started to make sense.
-            </p>
-          </section>
-
-          <section class="article-section">
-            <h2>What the Logs Showed</h2>
-            <p>
-              The first thing that stood out was an obfuscated script reaching out to a malicious site. It was written
-              in a way that tried to hide what it was doing, but once you start breaking it apart, the intent becomes
-              clear. After that initial step, I noticed callbacks to suspicious IPs and URLs and references to PHP
-              commands. Some of the traffic pointed back to klick-style URLs, which helped line up the moment the user
-              interacted with the page.
-            </p>
-            <p>
-              While I worked through the telemetry, the system activity started to form a common attack pattern. There
-              were silent and headless PowerShell executions. Files were being downloaded, run, then deleted right
-              after. That type of create–execute–delete behavior is something you see often when an attacker wants the
-              action without the evidence left behind. There were also scheduled tasks created for persistence, which
-              tied everything together.
-            </p>
-            <p>
-              None of these things on their own would immediately scream reCAPTCHA trouble. The reCAPTCHA was real. The
-              page looked real. The activity was quiet. But putting them together removed the guesswork.
-            </p>
-          </section>
-
-          <section class="article-section">
-            <h2>Why the Timing Mattered So Much</h2>
-            <p>
-              One thing that stood out was how fast everything moved once the user interacted with the page. No
-              credentials were typed. The browser already had a valid session, and the attacker used that opportunity.
-              When you lay out the sequence by timestamp, it becomes much easier to see how normal user behavior can
-              blend into attacker behavior in a matter of seconds.
-            </p>
-            <p>
-              That is what made the reCAPTCHA moment important. It wasn’t the problem. It was the timing window the
-              attacker used.
-            </p>
-          </section>
-
-          <section class="article-section">
-            <h2>The Indicators That Pulled It All Together</h2>
-            <p>
-              The main things that helped confirm what was happening were consistent. On their own, each one was
-              suspicious. Together, they told a clear story.
-            </p>
-            <ul class="project-bullets">
-              <li>Obfuscated script activity with outbound calls</li>
-              <li>Silent or headless PowerShell execution</li>
-              <li>Sudden scheduled tasks that no user created</li>
-              <li>Malicious or suspicious URLs in the callback chain</li>
-              <li>Files that appear briefly, execute, and then disappear</li>
-            </ul>
-            <p>
-              Each of these pieces pointed in the same direction, and the timeline supported it. Once the activity was
-              laid out step by step, the attack path stopped being a guess and became something you could clearly
-              explain.
-            </p>
-          </section>
-
-          <section class="article-section">
-            <h2>How to Respond</h2>
-            <p>
-              Situations like this always call for a full cleanup. You want to revoke sessions, reset credentials and
-              MFA, isolate the device, block the malicious URLs and IPs, and check for anything that might allow the
-              attacker back in. That includes scheduled tasks, browser extensions, stored sessions, and anything else
-              that could have been manipulated.
-            </p>
-            <p>
-              The user side matters too. Even when something looks familiar, like a real reCAPTCHA on a normal page,
-              there’s value in slowing down, checking URLs, and avoiding links that fall outside of expected workflows.
-              Conditional access, EDR controls, and tighter rules around script-based execution go a long way here when
-              an attacker is trying to quietly abuse an existing session instead of stealing credentials outright.
-            </p>
-          </section>
-
-          <section class="article-section">
-            <h2>Skills I Sharpened While Working Through It</h2>
-            <p>
-              I had to pull from different areas to break everything down. Threat analysis and narrowing my queries
-              helped focus on the right parts of the telemetry instead of getting lost in the noise. Deobfuscating
-              scripts and reviewing persistence behavior played a big role in understanding what the attacker wanted to
-              accomplish and how they tried to hide it.
-            </p>
-            <p>
-              Understanding session and token behavior helped confirm the hijacking attempts and why the attacker didn’t
-              need the user to type anything. I also spent time verifying indicators through OSINT and checking domain
-              and IP reputations.
-            </p>
-            <p>
-              One thing I appreciated was being able to use locally run AI tools to analyze some of the obfuscated
-              commands. It kept sensitive data off third-party services and saved time.
-            </p>
-          </section>
-
-          <section class="article-section">
-            <h2>Final Thoughts</h2>
-            <p>
-              This whole situation reminded me that attackers hide in normal-looking activity more often than people
-              realize. Everything seems fine until you line up the user action with what the system did next. That’s
-              when the picture becomes clear.
-            </p>
-            <p>
-              It also showed how fast a session can be misused without the user typing anything. Even controls we trust,
-              like reCAPTCHA, can fit into an attack chain if someone knows how to use the timing to their advantage.
-              This was a solid learning experience and a good reminder to always look at behavior patterns instead of
-              isolated events.
-            </p>
-          </section>
-          <!-- Blog Article 2 End -->
-
+            </article>
+          </div>
         </article>
-       <div class="blog-fade-overlay"></div>
+
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</main>
+
 
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -674,4 +707,5 @@
 
 </body>
 </html>
+
 
