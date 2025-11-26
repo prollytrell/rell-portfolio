@@ -710,6 +710,31 @@ body {
   background: rgba(15, 23, 42, 0.9);
 }
 
+/* Blog list + cards */
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.blog-card {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.blog-card-header {
+  margin-bottom: 0.75rem;
+}
+
+.blog-card + .blog-card {
+  /* no extra margin, just the shared border line */
+}
+
+.blog-hero {
+  /* no longer used as a full-page hero, but safe to leave if present */
+}
+
 /* Blog expand / collapse */
 
 .blog-toggle-row {
@@ -887,6 +912,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
