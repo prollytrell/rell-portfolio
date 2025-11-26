@@ -659,53 +659,65 @@
 
   <script>
   // Footer year
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  // Blog expand / collapse (dynamic height)
-  const blogWrapper = document.getElementById("blog-expand-wrapper");
-  const blogToggleBtn = document.getElementById("blog-toggle");
-
-  if (blogWrapper && blogToggleBtn) {
-    let expanded = false;
-
-    // Ensure collapsed state on load
-    blogWrapper.style.maxHeight = "0px";
-
-    blogToggleBtn.addEventListener("click", () => {
-      expanded = !expanded;
-      blogWrapper.classList.toggle("expanded", expanded);
-      blogWrapper.setAttribute("aria-expanded", expanded);
-
-      if (expanded) {
-        // Set height to full content height
-        const fullHeight = blogWrapper.scrollHeight;
-        blogWrapper.style.maxHeight = fullHeight + "px";
-        blogToggleBtn.textContent = "Read less";
-      } else {
-        // Collapse back to zero and scroll up near hero
-        blogWrapper.style.maxHeight = "0px";
-        blogToggleBtn.textContent = "Read more";
-
-        const hero = document.querySelector(".blog-hero");
-        if (hero) {
-          const y = hero.getBoundingClientRect().top + window.scrollY - 80;
-          window.scrollTo({ top: y, behavior: "smooth" });
-        }
-      }
-    });
-
-    // Optional: recompute height on window resize while expanded
-    window.addEventListener("resize", () => {
-      if (expanded) {
-        blogWrapper.style.maxHeight = blogWrapper.scrollHeight + "px";
-      }
-    });
+  const yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
   }
-  </script>
+
+  // Multi-card blog expand / collapse (one button per card)
+  (function () {
+    const toggles = document.querySelectorAll(".blog-toggle-btn");
+
+    toggles.forEach((btn) => {
+      const targetId = btn.getAttribute("data-expand-target");
+      const wrapper = document.getElementById(targetId);
+      if (!wrapper) return;
+
+      let expanded = false;
+
+      // Start collapsed
+      wrapper.style.maxHeight = "0px";
+      wrapper.setAttribute("aria-expanded", "false");
+
+      btn.addEventListener("click", () => {
+        expanded = !expanded;
+
+        if (expanded) {
+          const fullHeight = wrapper.scrollHeight;
+          wrapper.classList.add("expanded");
+          wrapper.style.maxHeight = fullHeight + "px";
+          wrapper.setAttribute("aria-expanded", "true");
+          btn.textContent = "Read less";
+        } else {
+          wrapper.classList.remove("expanded");
+          wrapper.style.maxHeight = "0px";
+          wrapper.setAttribute("aria-expanded", "false");
+          btn.textContent = "Read more";
+
+          // Scroll back to the top of the card on collapse
+          const card = btn.closest(".blog-card");
+          if (card) {
+            const y = card.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }
+        }
+      });
+
+      // Recalculate height on resize if expanded
+      window.addEventListener("resize", () => {
+        if (expanded) {
+          wrapper.style.maxHeight = wrapper.scrollHeight + "px";
+        }
+      });
+    });
+  })();
+</script>
+
 </body>
 </html>
 
 </body>
 </html>
+
 
 
