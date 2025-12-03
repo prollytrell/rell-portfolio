@@ -15,46 +15,110 @@
   --radius-xl: 20px;
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.95);
 }
+/* === Light theme – cyber blue variant === */
+
 :root.theme-light {
-  --bg: #f8fafc;
-  --bg-alt: #e5e7eb;
-  --panel: #ffffff;
+  --bg: #e0f2fe;              /* light sky blue */
+  --bg-alt: #dbeafe;          /* slightly deeper blue */
+  --panel: #f8fafc;           /* panel background */
   --panel-alt: #e5e7eb;
-  --border-subtle: rgba(148, 163, 184, 0.6);
-  --text: #0f172a;
-  --muted: #475569;
-  --accent: #0ea5e9;
-  --accent-soft: rgba(14, 165, 233, 0.12);
+  --border-subtle: rgba(148, 163, 184, 0.75);
+  --text: #020617;            /* almost-black ink */
+  --muted: #475569;           /* slate */
+  --accent: #0284c7;          /* cyber blue */
+  --accent-soft: rgba(2, 132, 199, 0.15);
 }
 
-/* Light-mode background + global text color */
+/* Page background + body text */
+
 .theme-light body {
-  background: radial-gradient(circle at top, #e2f3ff 0, #f8fafc 45%, #e5e7eb 100%);
+  background: radial-gradient(circle at top, #eff6ff 0, #e0f2fe 45%, #dbeafe 100%);
   color: var(--text);
 }
 
-/* Header / footer / panels in light mode */
+/* Header / footer */
+
 .theme-light .site-header {
-  background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.12), transparent 55%),
+  background: radial-gradient(circle at top left, rgba(2, 132, 199, 0.12), transparent 55%),
               rgba(248, 250, 252, 0.96);
-  border-bottom-color: rgba(148, 163, 184, 0.6);
+  border-bottom-color: rgba(148, 163, 184, 0.7);
 }
 
 .theme-light .site-footer {
   background: #e5e7eb;
-  border-top-color: rgba(148, 163, 184, 0.6);
+  border-top-color: rgba(148, 163, 184, 0.7);
 }
+
+/* Hero right panel + cards */
+
+.theme-light .status-card {
+  background: linear-gradient(135deg, #eff6ff, #e0f2fe);
+  border-color: rgba(148, 163, 184, 0.7);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.09);
+}
+
+.theme-light .badge-card {
+  background: #f8fafc;
+  border-style: solid;
+  border-color: rgba(148, 163, 184, 0.75);
+}
+
+.theme-light .section-alt {
+  background: radial-gradient(circle at top right, rgba(2, 132, 199, 0.12), transparent 55%),
+              #edf2ff;
+  border-top-color: rgba(148, 163, 184, 0.7);
+  border-bottom-color: rgba(148, 163, 184, 0.7);
+}
+
+/* Projects cards */
+
+.theme-light .project-card {
+  background: linear-gradient(135deg, #f9fafb, #e5f2ff);
+  border-color: rgba(148, 163, 184, 0.75);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* Skills pills */
+
+.theme-light .pill {
+  background: #ffffff;
+  border-color: rgba(148, 163, 184, 0.75);
+  color: #0f172a;
+}
+
+/* Blog table */
+
+.theme-light .blog-table th {
+  background: linear-gradient(135deg, #e0f2fe, #bfdbfe);
+  color: #020617;
+}
+
+.theme-light .blog-table td {
+  background: #f9fafb;
+}
+
+/* Captcha modal */
+
+.theme-light .captcha-modal {
+  background: #ffffff;
+  border-color: rgba(148, 163, 184, 0.75);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+}
+
+/* Softer shadows in light mode so it doesn’t look muddy */
 
 .theme-light .status-card,
 .theme-light .project-card,
-.theme-light .badge-card,
-.theme-light .section-alt,
-.theme-light .blog-table th,
-.theme-light .blog-table td,
-.theme-light .captcha-modal {
-  background: #ffffff;
-  color: var(--text);
+.theme-light .badge-card {
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.10);
 }
+
+/* Core domains accent text on light */
+
+.theme-light .badge-tags {
+  color: #0369a1;
+}
+
 
 /* Keep accent vibe on borders in light mode */
 .theme-light .status-card,
@@ -407,6 +471,29 @@ body {
   z-index: 5;
 }
 
+/* Light mode adjustments – phone reveal */
+
+.theme-light .phone-number {
+  color: #020617; /* dark text */
+}
+
+.theme-light .phone-cover {
+  background: #e5f0ff;
+  border-color: rgba(148, 163, 184, 0.9);
+  color: #020617;
+}
+
+/* Tone down the glitch glow a bit on light */
+
+.theme-light .phone-number::before {
+  text-shadow: -1px 0 #0ea5e9;
+}
+
+.theme-light .phone-number::after {
+  text-shadow: 1px 0 #f97373;
+}
+
+
 /* Hover / hold: reveal + glitch – only after captcha */
 .human-verified .phone-hover-wrapper:hover .phone-cover,
 .human-verified .phone-hover-wrapper:active .phone-cover {
@@ -709,6 +796,16 @@ body {
 
 .ghost-btn:hover {
   background: rgba(15, 23, 42, 0.95);
+}
+
+.theme-light .ghost-btn {
+  background: transparent;
+  color: #0f172a;
+  border-color: rgba(148, 163, 184, 0.9);
+}
+
+.theme-light .ghost-btn:hover {
+  background: rgba(226, 232, 240, 0.7);
 }
 
 /* Projects */
@@ -1071,6 +1168,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
