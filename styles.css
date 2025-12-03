@@ -15,6 +15,55 @@
   --radius-xl: 20px;
   --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.95);
 }
+:root.theme-light {
+  --bg: #f8fafc;
+  --bg-alt: #e5e7eb;
+  --panel: #ffffff;
+  --panel-alt: #e5e7eb;
+  --border-subtle: rgba(148, 163, 184, 0.6);
+  --text: #0f172a;
+  --muted: #475569;
+  --accent: #0ea5e9;
+  --accent-soft: rgba(14, 165, 233, 0.12);
+}
+
+/* Light-mode background + global text color */
+.theme-light body {
+  background: radial-gradient(circle at top, #e2f3ff 0, #f8fafc 45%, #e5e7eb 100%);
+  color: var(--text);
+}
+
+/* Header / footer / panels in light mode */
+.theme-light .site-header {
+  background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.12), transparent 55%),
+              rgba(248, 250, 252, 0.96);
+  border-bottom-color: rgba(148, 163, 184, 0.6);
+}
+
+.theme-light .site-footer {
+  background: #e5e7eb;
+  border-top-color: rgba(148, 163, 184, 0.6);
+}
+
+.theme-light .status-card,
+.theme-light .project-card,
+.theme-light .badge-card,
+.theme-light .section-alt,
+.theme-light .blog-table th,
+.theme-light .blog-table td,
+.theme-light .captcha-modal {
+  background: #ffffff;
+  color: var(--text);
+}
+
+/* Keep accent vibe on borders in light mode */
+.theme-light .status-card,
+.theme-light .project-card,
+.theme-light .badge-card,
+.theme-light .captcha-modal {
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
 
 *,
 *::before,
@@ -64,6 +113,21 @@ body {
   justify-content: space-between;
   padding: 0.85rem 0;
 }
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  gap: 1rem; /* <-- new */
+}
+
+/* Wraps nav + theme toggle on the right */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 
 .logo-mark {
   display: flex;
@@ -130,6 +194,93 @@ body {
 
 .nav-link.active::after {
   width: 100%;
+}
+
+/* Theme toggle */
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
+              rgba(15, 23, 42, 0.96);
+  cursor: pointer;
+  font-family: "JetBrains Mono", ui-monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 36px;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.9);
+  overflow: hidden;
+}
+
+.theme-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), #22c55e);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.9);
+  transition: transform 0.18s ease-out;
+}
+
+/* Move thumb to the right in light mode */
+.theme-light .theme-toggle-thumb {
+  transform: translateX(16px);
+}
+
+.theme-toggle-label {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.theme-toggle-label span {
+  opacity: 0.4;
+}
+
+.theme-toggle-label-dark {
+  opacity: 1;
+}
+
+/* In light mode, highlight LIGHT instead */
+.theme-light .theme-toggle-label-dark {
+  opacity: 0.4;
+}
+.theme-light .theme-toggle-label-light {
+  opacity: 1;
+}
+
+/* Slightly lighter toggle bg in light mode */
+.theme-light .theme-toggle {
+  background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.15), transparent 55%),
+              rgba(248, 250, 252, 0.98);
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .header-inner {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .header-right {
+    gap: 0.75rem;
+  }
+
+  .theme-toggle-label {
+    display: none; /* show just the slider on very small screens */
+  }
 }
 
 /* Hero */
@@ -920,6 +1071,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
