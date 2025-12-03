@@ -38,6 +38,27 @@
   color: var(--text);
 }
 
+/* Header / footer */
+
+.theme-light .site-header {
+  background: linear-gradient(
+    to bottom,
+    #a3d4f6 0%,
+    #94c6ee 100%
+  );
+  border-bottom: 1px solid rgba(30, 41, 59, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+.theme-light .site-footer {
+  background: linear-gradient(
+    to bottom,
+    #a3d4f6 0%,
+    #94c6ee 100%
+  );
+  border-top: 1px solid rgba(30, 41, 59, 0.25);
+}
+
 /* Panels / cards */
 
 .theme-light .status-card {
@@ -1210,6 +1231,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
