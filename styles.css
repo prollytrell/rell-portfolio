@@ -143,6 +143,31 @@
   color: var(--muted);
 }
 
+/* Stronger heading contrast in light mode */
+
+.theme-light .section-title,
+.theme-light .status-title,
+.theme-light .badge-label,
+.theme-light .project-title,
+.theme-light .blog-card .hero-title,
+.theme-light .blog-article h2 {
+  color: #020617;          /* true dark text */
+}
+
+.theme-light .section-title,
+.theme-light .status-title,
+.theme-light .project-title,
+.theme-light .blog-card .hero-title,
+.theme-light .blog-article h2 {
+  font-weight: 600;        /* slightly bolder for clarity */
+}
+
+/* Optional: make hero kicker still accented but more visible */
+.theme-light .hero-kicker {
+  color: var(--accent);    /* teal accent from light theme */
+  opacity: 0.9;
+}
+
 
 *,
 *::before,
@@ -1183,6 +1208,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
