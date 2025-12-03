@@ -31,6 +31,20 @@
   --accent-soft: rgba(15, 118, 110, 0.16);
 }
 
+/* Light mode nav links match section headings */
+
+.theme-light .nav-link {
+  color: #020617;                 /* same as section titles */
+}
+
+.theme-light .nav-link:hover {
+  color: #0f172a;                 /* slightly darker on hover */
+}
+
+.theme-light .nav-link.active {
+  color: var(--accent);           /* teal accent for active page */
+}
+
 /* Page background + base text */
 
 .theme-light body {
@@ -239,13 +253,8 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.85rem 0;
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 0;
-  gap: 1rem; /* <-- new */
+  column-gap: 1rem;
+  row-gap: 0;
 }
 
 /* Wraps nav + theme toggle on the right */
@@ -1197,23 +1206,21 @@ body {
 }
 
 @media (max-width: 640px) {
-  /* Keep header layout similar to desktop but with more padding */
   .header-inner {
-    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 1.25rem; /* adds safe space from screen edge */
-    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    row-gap: 0.5rem;
   }
 
-  /* Make sure logo isn’t hugging the edge */
   .logo-mark {
-    display: flex;
-    align-items: baseline;
+    order: 1;
   }
 
-  /* Slightly tighter nav gap on small screens */
   .main-nav {
+    order: 2;
+    margin-left: auto;      /* pushes nav to the right on the first row */
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
@@ -1223,14 +1230,20 @@ body {
     padding: 0.25rem 0;
   }
 
-  .hero {
-    padding-top: 3rem;
+  .theme-toggle {
+    order: 3;
+    width: 100%;            /* takes its own line */
+    display: flex;
+    justify-content: center;/* centers the switch */
+    margin-top: 0.25rem;
   }
 
   .footer-inner {
     flex-direction: column;
   }
 }
+
+
 
 
 
