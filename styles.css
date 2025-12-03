@@ -631,6 +631,14 @@ body {
 .project-link:hover {
   text-decoration: underline;
 }
+
+.section-divider {
+  /* same properties as the blog’s article divider */
+  border: 0;
+  border-top: 1px solid var(--border-subtle);
+  margin: 2.5rem 0;
+}
+
 /* Blog layout */
 
 .blog-hero {
@@ -912,6 +920,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
