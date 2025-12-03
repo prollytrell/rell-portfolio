@@ -633,10 +633,10 @@ body {
 }
 
 .section-divider {
-  /* same properties as the blog’s article divider */
   border: 0;
   border-top: 1px solid var(--border-subtle);
-  margin: 2.5rem 0;
+  margin: 3rem 0;
+  width: 100%;
 }
 
 /* Blog layout */
@@ -920,6 +920,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
