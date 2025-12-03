@@ -167,11 +167,13 @@
 }
 
 /* Light-mode skill pills */
-.theme-light .pill {
-  background: linear-gradient(135deg, #ffffff 0%, #e8f4ff 70%);
-  border: 1px solid rgba(30, 41, 59, 0.25);
+.captcha-modal input {
+  background: #ffffff !important;
   color: #0f172a;
-  box-shadow: 0 3px 8px rgba(30, 41, 59, 0.10);
+  border: 1px solid rgba(30, 41, 59, 0.35);
+  padding: 0.5rem 0.6rem;
+  border-radius: 6px;
+  font-family: "JetBrains Mono", monospace;
 }
 
 /* Blog table */
@@ -1299,6 +1301,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
