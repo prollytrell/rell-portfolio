@@ -61,6 +61,41 @@
   color: #475569 !important;   /* slate */
 }
 
+/* Light-mode Core Domains bubble (gradient-match version) */
+.theme-light .badge-card {
+  background: radial-gradient(
+    circle at top right,
+    rgba(255, 255, 255, 0.5) 0%,
+    #d8edfb 30%,
+    #c4e5fb 55%,
+    #b3d6f3 100%
+  );
+  border: 1px solid rgba(30, 41, 59, 0.25);
+  color: #0f172a;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 22px rgba(23, 37, 84, 0.12);
+}
+
+/* Matching skill pills */
+.theme-light .pill {
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #dff0fc 70%,
+    #c6e5fb 100%
+  );
+  border: 1px solid rgba(30, 41, 59, 0.25);
+  color: #0f172a;
+}
+
+/* Light-mode skill pills */
+.theme-light .pill {
+  background: linear-gradient(135deg, #ffffff 0%, #e8f4ff 70%);
+  border: 1px solid rgba(30, 41, 59, 0.25);
+  color: #0f172a;
+  box-shadow: 0 3px 8px rgba(30, 41, 59, 0.10);
+}
+
 /* Page background + base text */
 
 .theme-light body {
@@ -1264,6 +1299,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
