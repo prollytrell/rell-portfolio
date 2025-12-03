@@ -11,6 +11,47 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
+    <script>
+    (function () {
+      const STORAGE_KEY = 'siteTheme';
+      const root = document.documentElement;
+
+      function apply(theme) {
+        if (theme === 'light') {
+          root.classList.add('theme-light');
+        } else {
+          root.classList.remove('theme-light');
+        }
+      }
+
+      let stored = null;
+      try {
+        stored = sessionStorage.getItem(STORAGE_KEY);
+      } catch (e) {
+        stored = null;
+      }
+
+      if (stored === 'light' || stored === 'dark') {
+        apply(stored);
+      } else {
+        // default to dark
+        apply('dark');
+      }
+
+      window.__setTheme = function (theme) {
+        apply(theme);
+        try {
+          sessionStorage.setItem(STORAGE_KEY, theme);
+        } catch (e) {}
+      };
+
+      window.__toggleTheme = function () {
+        const isLight = !root.classList.contains('theme-light');
+        window.__setTheme(isLight ? 'light' : 'dark');
+      };
+    })();
+  </script>
+
 </head>
 <body>
   <header class="site-header">
@@ -173,5 +214,6 @@
   </script>
 </body>
 </html>
+
 
 
