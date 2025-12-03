@@ -61,19 +61,34 @@
 <body>
   <!-- Top nav -->
   <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo-mark">
-        <span class="logo-symbol">&gt;</span>
-        <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
-      </div>
+  <div class="container header-inner">
+    <div class="logo-mark">
+      <span class="logo-symbol">&gt;</span>
+      <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+    </div>
+
+    <div class="header-right">
       <nav class="main-nav">
-       <a href="index.html" class="nav-link">Home</a>
-       <a href="projects.html" class="nav-link">Projects</a>
-       <a href="blog.html" class="nav-link">Blog</a>
+        <!-- keep your existing links, with the correct .active on each page -->
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="blog.html" class="nav-link">Blog</a>
       </nav>
 
+      <!-- Theme toggle button -->
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">
+          <span class="theme-toggle-label-light">LIGHT</span>
+          <span class="theme-toggle-label-dark">DARK</span>
+        </span>
+      </button>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- Hero / Intro -->
   <main>
@@ -485,6 +500,7 @@
 </div>
 </body>
 </html>
+
 
 
 
