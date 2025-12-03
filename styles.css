@@ -38,19 +38,6 @@
   color: var(--text);
 }
 
-/* Header / footer */
-
-.theme-light .site-header {
-  background: radial-gradient(circle at top left, rgba(15, 118, 110, 0.16), transparent 55%),
-              rgba(248, 250, 252, 0.96);
-  border-bottom-color: rgba(148, 163, 184, 0.7);
-}
-
-.theme-light .site-footer {
-  background: #e5e7eb;
-  border-top-color: rgba(148, 163, 184, 0.7);
-}
-
 /* Panels / cards */
 
 .theme-light .status-card {
@@ -73,9 +60,24 @@
 }
 
 .theme-light .project-card {
-  background: linear-gradient(135deg, #f9fafb, #d7ecff);
-  border-color: rgba(148, 163, 184, 0.8);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  background: linear-gradient(
+    135deg,
+    #eaf6ff 0%,
+    #d0ebff 40%,
+    #c0e1ff 100%
+  );
+  border-color: rgba(23, 37, 84, 0.18); /* indigo/sapphire subtle border */
+  box-shadow: 0 10px 24px rgba(23, 37, 84, 0.12);
+}
+
+.theme-light .project-card .project-title {
+  color: #0f172a;
+}
+
+.theme-light .project-card .project-summary,
+.theme-light .project-card .project-meta,
+.theme-light .project-card .project-bullets {
+  color: #334155;
 }
 
 /* Skills pills */
@@ -1208,6 +1210,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
