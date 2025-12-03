@@ -71,13 +71,13 @@
 /* Header / footer */
 
 .theme-light .site-header {
-  background: #A3BDED;
+  background: #99C7EC;
   border-bottom: 1px solid rgba(30, 41, 59, 0.25);
   backdrop-filter: blur(10px);
 }
 
 .theme-light .site-footer {
-  background: #A3BDED;
+  background: #99C7EC;
   border-top: 1px solid rgba(30, 41, 59, 0.25);
 }
 
@@ -1250,6 +1250,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
