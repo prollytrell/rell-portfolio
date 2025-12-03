@@ -45,6 +45,22 @@
   color: var(--accent);           /* teal accent for active page */
 }
 
+/* Light mode footer text */
+
+.theme-light .site-footer,
+.theme-light .footer-inner {
+  color: #020617 !important;      /* same rich ink color */
+}
+
+.theme-light .footer-inner span {
+  color: #020617 !important;
+}
+
+.theme-light .footer-inner .divider {
+  opacity: 0.5;
+  color: #475569 !important;   /* slate */
+}
+
 /* Page background + base text */
 
 .theme-light body {
@@ -1242,6 +1258,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
