@@ -71,21 +71,13 @@
 /* Header / footer */
 
 .theme-light .site-header {
-  background: linear-gradient(
-    to bottom,
-    #a3d4f6 0%,
-    #94c6ee 100%
-  );
+  background: #A3BDED;
   border-bottom: 1px solid rgba(30, 41, 59, 0.25);
   backdrop-filter: blur(10px);
 }
 
 .theme-light .site-footer {
-  background: linear-gradient(
-    to bottom,
-    #a3d4f6 0%,
-    #94c6ee 100%
-  );
+  background: #A3BDED;
   border-top: 1px solid rgba(30, 41, 59, 0.25);
 }
 
@@ -1258,6 +1250,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
