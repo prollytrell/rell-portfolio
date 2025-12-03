@@ -69,17 +69,31 @@
 }
 
 /* Header / footer */
+/* Light mode header & footer — gradient matching the site background */
 
 .theme-light .site-header {
-  background: #99C7EC;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.35) 0%,
+    #d8edfb 20%,
+    #c4e5fb 45%,
+    #b3d6f3 100%
+  );
   border-bottom: 1px solid rgba(30, 41, 59, 0.25);
   backdrop-filter: blur(10px);
 }
 
 .theme-light .site-footer {
-  background: #99C7EC;
+  background: radial-gradient(
+    circle at bottom right,
+    rgba(255, 255, 255, 0.35) 0%,
+    #d8edfb 20%,
+    #c4e5fb 45%,
+    #b3d6f3 100%
+  );
   border-top: 1px solid rgba(30, 41, 59, 0.25);
 }
+
 
 /* Panels / cards */
 
@@ -1250,6 +1264,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
