@@ -497,9 +497,22 @@
     }
   })();
 </script>
+  <script>
+    (function () {
+      const toggle = document.querySelector('.theme-toggle');
+      if (!toggle) return;
+
+      toggle.addEventListener('click', function () {
+        if (typeof window.__toggleTheme === 'function') {
+          window.__toggleTheme();
+        }
+      });
+    })();
+  </script>
 </div>
 </body>
 </html>
+
 
 
 
