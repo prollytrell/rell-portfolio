@@ -391,17 +391,15 @@ body {
   width: 100%;
 }
 
-/* Theme toggle */
+/* Theme toggle – outer button is bare, inner track is the pill */
 
 .theme-toggle {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
-              rgba(15, 23, 42, 0.96);
+  padding: 0;                    /* no pill padding here */
+  border: none;                  /* no border here */
+  background: transparent;       /* no background here */
   cursor: pointer;
   font-family: "JetBrains Mono", ui-monospace;
   font-size: 0.7rem;
@@ -412,10 +410,12 @@ body {
 
 .theme-toggle-track {
   position: relative;
-  width: 36px;
-  height: 16px;
+  width: 40px;
+  height: 18px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.7));
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 0 8px rgba(15, 23, 42, 0.7);
   overflow: hidden;
 }
 
@@ -431,10 +431,7 @@ body {
   transition: transform 0.18s ease-out;
 }
 
-/* Move thumb to the right in light mode */
-.theme-light .theme-toggle-thumb {
-  transform: translateX(16px);
-}
+/* Light/dark labels */
 
 .theme-toggle-label {
   display: flex;
@@ -449,7 +446,14 @@ body {
   opacity: 1;
 }
 
-/* In light mode, highlight LIGHT instead */
+/* Thumb shift in light mode */
+
+.theme-light .theme-toggle-thumb {
+  transform: translateX(18px);
+}
+
+/* Label emphasis in light mode */
+
 .theme-light .theme-toggle-label-dark {
   opacity: 0.4;
 }
@@ -457,10 +461,14 @@ body {
   opacity: 1;
 }
 
-/* Slightly lighter toggle bg in light mode */
-.theme-light .theme-toggle {
-  background: radial-gradient(circle at top left, rgba(14, 165, 233, 0.15), transparent 55%),
-              rgba(248, 250, 252, 0.98);
+/* Light-mode track styling */
+
+.theme-light .theme-toggle-track {
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.9), #cfe8ff);
+  border-color: rgba(30, 41, 59, 0.35);
+  box-shadow: 0 0 8px rgba(148, 163, 184, 0.6);
+}
+
 }
 
 /* Mobile tweaks */
@@ -1279,30 +1287,32 @@ body {
 
   .main-nav {
     order: 2;
-    margin-left: auto;      /* pushes nav to the right on the first row */
+    margin-left: auto;
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
   }
 
-  .nav-link {
-    padding: 0.25rem 0;
-  }
-
-   .theme-toggle {
+  .theme-toggle {
     order: 3;
-    flex-basis: 100%;         /* forces it onto its own row */
+    flex-basis: 100%;           /* puts it on its own row */
     display: flex;
-    justify-content: center;  /* centers the toggle */
+    justify-content: center;    /* centers the small pill */
     margin-top: 0.25rem;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .theme-toggle-label {
+    display: none;              /* if you want only the pill on very small screens */
   }
 
   .footer-inner {
     flex-direction: column;
   }
 }
+
+
 
 
 
