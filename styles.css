@@ -112,6 +112,7 @@
   backdrop-filter: blur(10px);
 }
 
+
 .theme-light .site-footer {
   background: radial-gradient(
     circle at bottom right,
@@ -305,7 +306,10 @@ body {
   position: sticky;
   top: 0;
   z-index: 20;
-  padding-bottom: 0.75rem;
+}
+
+.site-header {
+  padding-bottom: 0.75rem;  /* or 1rem if you prefer more spacing */
 }
 
 .header-inner {
@@ -1293,6 +1297,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
