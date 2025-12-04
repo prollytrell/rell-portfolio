@@ -1289,18 +1289,21 @@ body {
     padding: 0.25rem 0;
   }
 
-  .theme-toggle {
+   .theme-toggle {
     order: 3;
-    width: 100%;            /* takes its own line */
+    flex-basis: 100%;         /* forces it onto its own row */
     display: flex;
-    justify-content: center;/* centers the switch */
+    justify-content: center;  /* centers the toggle */
     margin-top: 0.25rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .footer-inner {
     flex-direction: column;
   }
 }
+
 
 
 
