@@ -305,6 +305,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 20;
+  padding-bottom: 0.75rem;
 }
 
 .header-inner {
@@ -1292,6 +1293,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
