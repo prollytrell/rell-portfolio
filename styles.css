@@ -393,6 +393,8 @@ body {
 
 /* Theme toggle – outer button is bare, inner track is the pill */
 
+/* === Theme toggle base === */
+
 .theme-toggle {
   display: inline-flex;
   align-items: center;
@@ -431,7 +433,7 @@ body {
   transition: transform 0.18s ease-out;
 }
 
-/* Light/dark labels */
+/* Labels */
 
 .theme-toggle-label {
   display: flex;
@@ -446,22 +448,19 @@ body {
   opacity: 1;
 }
 
-/* Thumb shift in light mode */
+/* Light mode thumb + track */
 
 .theme-light .theme-toggle-thumb {
   transform: translateX(18px);
 }
 
-/* Label emphasis in light mode */
-
 .theme-light .theme-toggle-label-dark {
   opacity: 0.4;
 }
+
 .theme-light .theme-toggle-label-light {
   opacity: 1;
 }
-
-/* Light-mode track styling */
 
 .theme-light .theme-toggle-track {
   background: radial-gradient(circle at top, rgba(255, 255, 255, 0.9), #cfe8ff);
@@ -1278,18 +1277,15 @@ body {
     gap: 0.75rem;
   }
 
+  /* IMPORTANT: small button, own row, not stretched */
   .theme-toggle {
     order: 3;
-    flex-basis: 100%;           /* puts it on its own row */
-    display: flex;
-    justify-content: center;    /* centers the small pill */
-    margin-top: 0.25rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .theme-toggle-label {
-    display: none;              /* if you want only the pill on very small screens */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;           /* no full width */
+    flex: 0 0 auto;        /* don't grow or stretch */
+    margin: 0.35rem auto 0;
   }
 
   .footer-inner {
