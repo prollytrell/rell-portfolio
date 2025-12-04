@@ -308,8 +308,9 @@ body {
   z-index: 20;
 }
 
-.site-header {
-  padding-bottom: 0.75rem;  /* or 1rem if you prefer more spacing */
+main > .hero:first-child
+main > .section:first-child {
+  margin-top: 1.25rem;
 }
 
 .header-inner {
@@ -1297,6 +1298,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
