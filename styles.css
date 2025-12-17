@@ -1285,7 +1285,14 @@ body {
   .footer-inner {
     flex-direction: column;
   }
+
+  /* Blog card CTA spacing (force consistent rhythm) */
+.blog-card .blog-toggle-row {
+  margin-top: 1rem !important;
 }
+
+}
+
 
 
 
