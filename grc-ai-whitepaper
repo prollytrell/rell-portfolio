@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Governance, Risk, and Compliance with Artificial Intelligence | Terrell Grenyion</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Theme (session-persisted) -->
+  <script>
+    (function () {
+      const STORAGE_KEY = 'siteTheme';
+      const root = document.documentElement;
+
+      function apply(theme) {
+        if (theme === 'light') root.classList.add('theme-light');
+        else root.classList.remove('theme-light');
+      }
+
+      let stored = null;
+      try { stored = sessionStorage.getItem(STORAGE_KEY); } catch (e) { stored = null; }
+
+      if (stored === 'light' || stored === 'dark') apply(stored);
+      else apply('dark');
+
+      window.__setTheme = function (theme) {
+        apply(theme);
+        try { sessionStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+      };
+
+      window.__toggleTheme = function () {
+        const isLight = !root.classList.contains('theme-light');
+        window.__setTheme(isLight ? 'light' : 'dark');
+      };
+    })();
+  </script>
+
+  <!-- Note: this file lives in /blog/, so use ../ -->
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo-mark">
+        <span class="logo-symbol">&gt;</span>
+        <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+      </div>
+
+      <!-- Keep nav simple: no individual article links -->
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../projects.html" class="nav-link">Projects</a>
+        <a href="../blog.html" class="nav-link">Blog</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">
+          <span class="theme-toggle-label-light">LIGHT</span>
+          <span class="theme-toggle-label-dark">DARK</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="blog-article" style="max-width: 860px; margin: 0 auto;">
+          <p class="hero-kicker">BLOG • RESEARCH</p>
+          <h1 class="hero-title">Governance, Risk, and Compliance with Artificial Intelligence</h1>
+          <p class="hero-subtitle">Building a framework for responsible enterprise AI: aligning governance, risk management, and compliance with emerging AI risks, regulations, and ethical expectations.</p>
+
+          <div class="blog-meta" style="margin-top: 0.75rem;">
+            <span>By Terrell Grenyion</span>
+            <span class="divider">•</span>
+            <span>2025</span>
+            <span class="divider">•</span>
+            <span>~10–12 min read</span>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <a class="btn ghost-btn" href="../blog.html">← Back to Blog</a>
+          </div>
+
+          <section class="article-section" style="margin-top: 2rem;">
+            <h2>Abstract</h2>
+            <p>
+              As artificial intelligence (AI) becomes more integrated into business operations, traditional governance,
+              risk management, and compliance (GRC) models face challenges in addressing its unique ethical, legal, and
+              technical issues. This paper examines how organizations can adapt their governance strategies to ensure
+              the responsible use of AI. It analyzes key frameworks, including the NIST AI Risk Management Framework and
+              the EU AI Act, and identifies gaps in oversight, transparency, and accountability.
+            </p>
+            <p>
+              To address these gaps, a Mini AI GRC Framework is proposed, which emphasizes five domains: governance,
+              risk, compliance, transparency, and accountability. Each domain is mapped to practical controls and
+              existing standards. A real-world example related to AI-driven hiring demonstrates how organizations can
+              manage bias, conduct impact assessments, and establish incident response plans to maintain trust and
+              compliance.
+            </p>
+            <p>
+              The findings indicate that effective AI governance requires not only adherence to regulations but also a
+              continuous commitment to ethical design, collaboration with stakeholders, and adaptive risk management.
+              This approach positions responsible AI as both a compliance issue and a business advantage.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Introduction</h2>
+            <p>
+              Artificial intelligence (AI) is no longer just a futuristic concept. It is rapidly becoming the
+              decision-maker behind hiring processes, loan approvals, medical diagnoses, and even law enforcement
+              strategies. While these applications promise efficiency and innovation, they also raise unsettling
+              questions. What happens when an algorithm discriminates? Who is accountable when a machine’s decision
+              leads to harm? These questions emphasize the growing tension between the speed of adoption of AI and the
+              slower pace of governance and regulatory oversight.
+            </p>
+            <p>
+              Traditional frameworks for governance, risk management, and compliance (GRC), such as ISO 27001 or COSO
+              ERM, were not designed to manage the unique risks of AI systems. Issues such as algorithmic bias, lack of
+              transparency, and evolving regulatory standards stretch conventional compliance models beyond their limits.
+              Biased training data can perpetuate discrimination, while opaque “black box” models make it difficult for
+              organizations to explain or defend automated decisions. Regulators are beginning to respond, such as the
+              NIST AI Risk Management Framework, which provides a structured approach to mapping, measuring, and
+              managing AI risks, while the EU Artificial Intelligence Act aims to classify and regulate AI systems by
+              risk level.
+            </p>
+            <p>
+              This article looks at how organizations can modify existing GRC models to better manage the challenges
+              posed by AI. It discusses the limitations of current approaches, introduces new regulatory ideas such as
+              the NIST AI Risk Management Framework and the EU AI Act, and suggests a simple mini-framework tailored to
+              govern AI effectively. As businesses continue to adopt smart technologies, creating responsible and
+              transparent governance strategies will be crucial, not only to comply with regulations but also to build
+              trust and resilience for the future.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>AI-Specific Risks in Governance, Risk, and Compliance</h2>
+            <p>
+              AI poses a variety of risks that go beyond what traditional GRC frameworks typically cover. Unlike
+              standard technologies, AI systems are dynamic, meaning they learn from new data and can adapt to changes,
+              sometimes behaving in ways that their creators cannot fully understand. This unpredictability complicates
+              oversight and can lead to ethical, legal, and reputational issues.
+            </p>
+            <p>
+              One major concern is algorithmic bias. It is unrealistic to expect that bias can be eliminated from AI
+              systems. Instead, companies need to adopt structured methods to identify, track, and correct any unfair
+              outcomes. If unchecked, biased algorithms, especially in critical areas like hiring or lending, can
+              reinforce existing inequalities and leave organizations open to lawsuits and damage to their reputations.
+            </p>
+            <p>
+              Another significant risk is the lack of transparency and explainability in many advanced AI systems, which
+              often operate as “black boxes.” This makes it difficult to audit or justify their decisions, undermining
+              compliance efforts and eroding public trust. This is particularly concerning when AI systems make
+              life-altering decisions, such as denying medical treatment. Organizations must be able to explain those
+              decisions clearly and understandably.
+            </p>
+            <p>
+              Regulatory uncertainty also complicates how businesses adopt AI. Policymakers worldwide are still figuring
+              out how to balance the need for economic growth and innovation with the necessity for safety measures.
+              This uncertainty can lead to practical issues. For example, organizations using AI for surveillance may
+              ignore risks such as disproportionate impacts on marginalized communities. These realities show that
+              static compliance checklists are insufficient and that AI demands ongoing monitoring and adaptable risk
+              management strategies.
+            </p>
+            <p>
+              Finally, strategic and organizational risks play a crucial role. Board members must prioritize AI
+              governance, ensuring it is integrated into the overall enterprise strategy rather than treated as just a
+              technical issue. AI should be seen as a long-term societal challenge, not just a short-term compliance
+              matter. Taken together, these factors indicate that AI risks are complex and multifaceted, covering areas
+              like bias, lack of transparency, regulatory challenges, and governance shortcomings—all of which
+              necessitate a reevaluation of traditional GRC frameworks.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Governance for AI</h2>
+            <p>
+              Strong governance is crucial for the responsible adoption of artificial intelligence. While traditional
+              corporate governance has focused on accountability and oversight, AI presents unique challenges that
+              require new frameworks to address its specific risks. Effective AI governance should not be limited to
+              technical teams. It needs to involve people, processes, and technology across the organization to ensure
+              ethical and transparent use.
+            </p>
+            <p>
+              One effective solution is to establish an AI Governance Board or a similar oversight committee. Board-level
+              involvement is essential because AI decisions can significantly impact a company's reputation, financial
+              success, and ethical standards. If leadership does not engage in AI governance, organizations may
+              implement AI in ways that contradict their stated values. The board does not need to understand the
+              technical details of every model but should set clear expectations, demand accountability, and ensure
+              alignment with legal and ethical standards.
+            </p>
+            <p>
+              Another important aspect is the use of clear accountability frameworks. Defining roles for each stage of
+              the AI lifecycle—data collection, model development, testing, deployment, and monitoring—can prevent
+              governance issues caused by ambiguity. Tools like a RACI (Responsible, Accountable, Consulted, Informed)
+              matrix help clarify these roles and ensure that compliance officers and technical experts know what is
+              expected of them.
+            </p>
+            <p>
+              Transparency and documentation are also vital. Applying frameworks like the NIST AI Risk Management
+              Framework to real-world systems requires organizations to document not just technical risks but also
+              social impacts such as fairness and privacy. Tools like model cards and datasheets for datasets give
+              stakeholders clear information about how models were trained, what data was used, and any limitations.
+              This kind of transparency demonstrates a commitment to ethical AI design and helps manage potential
+              societal risks before they escalate into regulatory issues.
+            </p>
+            <p>
+              Lastly, effective governance must be collaborative and adaptable. Simply having principles is not enough
+              for AI oversight. Governance should aim to build relationships across different parts of the organization
+              to account for AI’s unpredictable nature. In this way, AI governance becomes less about strict rules and
+              more about fostering cooperation among compliance teams, engineers, executives, and external stakeholders.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Risk Management Adjustments</h2>
+            <p>
+              Traditional risk management practices need to adapt to the challenges posed by AI. Frameworks like ISO
+              27001 and COSO ERM are strong for managing information security, operational continuity, and financial
+              risks, but they do not fully address AI-specific concerns. Risk management strategies must expand to
+              include ongoing monitoring, ethical considerations, and the unpredictable behavior of AI systems.
+            </p>
+            <p>
+              Bias and fairness testing are crucial. Instead of trying to eliminate bias, organizations should focus on
+              practical ways to mitigate it, acknowledging that data imperfections are inevitable. This includes regular
+              fairness audits, using diverse training data, and implementing adversarial testing models that go beyond
+              simple compliance checks. Without these measures, companies might meet current regulations but still face
+              significant risks if public expectations change.
+            </p>
+            <p>
+              Model drift and continuous monitoring are also key concerns. AI models often perform well when first
+              trained, but their performance can degrade as real-world conditions change. Organizations should implement
+              ongoing monitoring to catch these shifts early, using checkpoints for retraining, tracking changes, and
+              incorporating monitoring throughout the system development lifecycle (SDLC). Explainability dashboards and
+              similar tools can help compliance officers and executives oversee AI performance.
+            </p>
+            <p>
+              Incident response and contingency planning must also be updated. Failures related to AI present not only
+              operational risks but also systemic challenges. Businesses need crisis plans that account for the
+              complexities of algorithmic decision-making. For example, if an autonomous system leads to harmful outcomes,
+              companies should have protocols to roll back the system, notify affected users, and comply with regulators.
+              Integrating AI-specific response strategies into disaster recovery and business continuity plans helps
+              organizations recover without losing public trust.
+            </p>
+            <p>
+              Finally, adapting to changing regulations must be treated as a core part of risk management. Global rules
+              are constantly evolving, creating uncertainty for businesses that operate across borders. Organizations
+              should monitor legislative changes, maintain flexible frameworks, and recognize that ethical risks add
+              complexity that rigid controls alone cannot address.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Compliance Challenges</h2>
+            <p>
+              Even with improved governance and risk management, enterprises must confront the shifting landscape of
+              compliance. AI introduces novel legal and ethical dilemmas that existing regulatory frameworks were not
+              designed to resolve. Regulations such as the GDPR and CCPA mainly focus on data privacy, but neither
+              fully addresses how automated decision-making systems should be audited or held accountable. As a result,
+              organizations are forced to interpret and adapt older laws to fit the realities of AI, often with
+              inconsistent results.
+            </p>
+            <p>
+              Newer initiatives aim to fill these gaps. The EU AI Act introduces a risk-based approach, classifying AI
+              systems from minimal to “unacceptable” risk. This pushes enterprises to consider not only whether systems
+              function properly, but also whether they fall into categories that trigger stricter obligations such as
+              transparency reporting, human oversight, or prohibition. In the U.S., the NIST AI Risk Management
+              Framework offers a complementary tool for aligning compliance practices with AI risk assessment.
+            </p>
+            <p>
+              Yet compliance challenges extend beyond legal frameworks. Even well-designed regulations cannot anticipate
+              every risk posed by increasingly autonomous AI systems. Compliance must be paired with ethical reflection.
+              Organizations should treat AI oversight as a relational practice in which responsibilities are negotiated
+              in real time across compliance teams, engineers, and stakeholders. This perspective highlights that
+              compliance is dynamic and must evolve as AI systems and their impacts evolve.
+            </p>
+            <p>
+              Industry-specific requirements add another layer of complexity. In regulated domains like healthcare,
+              finance, and cybersecurity, AI systems must align with both sector-specific regulations and broader
+              ethical expectations. For instance, an AI tool used to analyze medical images must comply with privacy
+              rules like HIPAA and also meet standards of clinical accountability and fairness. This “layering” of
+              obligations makes it harder for enterprises to stay consistent across jurisdictions and industries.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Mini AI GRC Framework Proposal</h2>
+            <p>
+              Traditional GRC methods are useful, but they fall short when dealing with the unique challenges posed by
+              AI. Organizations need a simpler, more targeted approach that combines GRC with AI-specific concerns. To
+              support that, this article introduces a Mini AI GRC Framework built around five domains: governance, risk,
+              compliance, transparency, and accountability.
+            </p>
+
+            <div class="blog-table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Domain</th>
+                    <th>AI-Specific Risk</th>
+                    <th>Suggested Control / Action</th>
+                    <th>Reference Standard</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Governance</td>
+                    <td>Lack of oversight and unclear accountability</td>
+                    <td>Establish an AI Governance Board and RACI matrices defining roles across the AI lifecycle.</td>
+                    <td>NIST AI RMF (Govern)</td>
+                  </tr>
+                  <tr>
+                    <td>Risk</td>
+                    <td>Algorithmic bias and fairness gaps</td>
+                    <td>Conduct routine bias testing, fairness audits, and dataset documentation.</td>
+                    <td>NIST AI RMF (Map / Measure)</td>
+                  </tr>
+                  <tr>
+                    <td>Compliance</td>
+                    <td>Privacy violations and regulatory misalignment</td>
+                    <td>Perform Privacy Impact Assessments (PIAs / DPIAs) and monitor evolving regulatory obligations.</td>
+                    <td>NIST SP 800-53; GDPR; CCPA</td>
+                  </tr>
+                  <tr>
+                    <td>Transparency</td>
+                    <td>Opaque “black box” models</td>
+                    <td>Implement explainability tools, model cards, and datasheets for datasets.</td>
+                    <td>NIST AI RMF; NIST CSF</td>
+                  </tr>
+                  <tr>
+                    <td>Accountability</td>
+                    <td>Absence of response protocols for AI incidents</td>
+                    <td>Develop AI-specific incident response playbooks integrated into DR / BCP strategies.</td>
+                    <td>NIST SP 800-61</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              The framework is grounded in governance research that emphasizes board engagement, structured risk
+              controls, fairness considerations, and the integration of ethical principles into compliance practices.
+              By aligning with guidance such as the NIST AI RMF and related standards, it remains consistent with
+              established best practices while staying flexible enough to adapt to evolving regulatory landscapes.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Example of Application: AI in Hiring</h2>
+            <p>
+              To illustrate how this framework can be put into practice, consider a company that uses an AI-driven tool
+              to screen job applications.
+            </p>
+            <p>
+              <strong>Governance:</strong> The company sets up an AI Governance Board that includes representatives from
+              Human Resources, compliance, and IT. A RACI matrix clarifies roles: HR is responsible for overseeing data
+              and use cases, IT is accountable for monitoring the system, and the compliance and legal teams are
+              consulted during risk assessments.
+            </p>
+            <p>
+              <strong>Risk Management:</strong> Regular audits are conducted to check for potential bias related to
+              gender, race, or age. Findings are documented and reviewed quarterly to maintain fairness and correct
+              issues promptly.
+            </p>
+            <p>
+              <strong>Compliance:</strong> Before deploying the AI tool, the organization performs a Privacy Impact
+              Assessment to ensure compliance with applicable privacy laws and automated decision-making rules. Local
+              employment laws are also reviewed.
+            </p>
+            <p>
+              <strong>Transparency:</strong> The company publishes a model card that explains how the hiring algorithm
+              works, what data it was trained on, and its limitations. This supports both candidates and regulators by
+              clarifying how automated decisions are made.
+            </p>
+            <p>
+              <strong>Accountability:</strong> An incident response protocol is developed for cases where the tool
+              produces discriminatory results. It includes suspending automated decision-making, retraining the model,
+              notifying affected applicants, and reporting outcomes to leadership.
+            </p>
+            <p>
+              By using the Mini AI GRC Framework in this context, the organization not only meets regulatory
+              requirements but also demonstrates proactive governance and ethical responsibility. This builds trust with
+              stakeholders and reduces long-term operational and reputational risk.
+            </p>
+          </section>
+
+          <section class="article-section">
+            <h2>Conclusion</h2>
+            <p>
+              Artificial intelligence offers exciting possibilities but also presents significant challenges for how
+              organizations manage governance, risk, and compliance. Traditional models struggle to keep up with issues
+              like algorithmic bias, regulatory uncertainty, and organizational misalignment. Effective AI governance
+              requires structured oversight, board-level engagement, and close collaboration between management,
+              compliance officers, and technical experts.
+            </p>
+            <p>
+              The Mini AI GRC Framework provides a practical, risk-based approach aligned with standards like the NIST
+              AI Risk Management Framework. By focusing on governance, risk, compliance, transparency, and accountability,
+              it gives organizations tools to address AI’s specific challenges while building trust with stakeholders.
+              The hiring example shows how these ideas translate into concrete practices such as bias testing and AI-specific
+              incident response.
+            </p>
+            <p>
+              Looking ahead, regulations such as the EU AI Act indicate that compliance demands will continue to evolve.
+              Organizations must be ready to adjust their frameworks to stay aligned with both legal obligations and
+              societal expectations. In that sense, AI governance is not a one-time project but an ongoing process that
+              must adapt as technologies and risks change.
+            </p>
+            <p>
+              In summary, AI challenges organizations to rethink governance, risk, and compliance as dynamic and
+              collaborative practices. By integrating insights from multiple disciplines and aligning with federal
+              standards, organizations can create frameworks that not only meet regulatory requirements but also promote
+              ethical responsibility and public trust.
+            </p>
+          </section>
+
+          <section class="article-section">
+  <h2>AI Transparency Note</h2>
+  <p>
+    Artificial intelligence tools were used in a limited and ethical support role during the development of this article.
+    AI assisted with concept organization, structural outlining, and editorial refinement for clarity and flow.
+    All analyses, interpretations, and framework design reflect my independent thinking and subject-matter judgment.
+  </p>
+</section>
+
+<section class="article-section">
+  <h2>Sources &amp; Further Reading</h2>
+  <ul class="project-bullets">
+    <li>Coeckelbergh, M. (2024). <em>From principles to relationships: Redesigning ethics for AI’s alien cognition.</em></li>
+    <li>Hendrycks, D. (2024). <em>Introduction to AI safety, ethics, and society.</em></li>
+    <li>Institute of Internal Auditors. (2022). <em>Cybersecurity frameworks: Virtual symposium presentation.</em></li>
+    <li>Kulothungan, V., Mohan, P. R., &amp; Gupta, D. (2025). <em>AI regulation and capitalist growth: Balancing innovation, ethics, and global governance.</em></li>
+    <li>National Institute of Standards and Technology (NIST). (2023). <em>AI Risk Management Framework (AI RMF 1.0).</em></li>
+    <li>National Institute of Standards and Technology (NIST). (2020). <em>Security and Privacy Controls for Information Systems and Organizations (SP 800–53 Rev. 5).</em></li>
+    <li>National Institute of Standards and Technology (NIST). (2012). <em>Computer Security Incident Handling Guide (SP 800–61 Rev. 2).</em></li>
+    <li>Sayles, J. (2024). <em>Principles of AI governance and model risk management.</em></li>
+    <li>Sharma, R. (2024). <em>AI and the boardroom: Governance, strategy, and responsible adoption of AI.</em></li>
+    <li>Swaminathan, N., &amp; Danks, D. (2024). <em>Applying the NIST AI RMF to surveillance technologies.</em></li>
+    <li>Townson, S. (2023). <em>Manage AI bias instead of trying to eliminate it.</em></li>
+  </ul>
+</section>
+
+          <div style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a class="btn ghost-btn" href="../blog.html">← Back to Blog</a>
+            <a class="btn" href="../index.html">Home</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> Terrell Grenyion</span>
+      <span class="divider">•</span>
+      <span>GRC • Risk • Privacy • Security Operations</span>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Theme toggle
+    (function () {
+      const toggle = document.querySelector('.theme-toggle');
+      if (!toggle) return;
+      toggle.addEventListener('click', function () {
+        if (typeof window.__toggleTheme === 'function') window.__toggleTheme();
+      });
+    })();
+  </script>
+</body>
+</html>
