@@ -1119,25 +1119,6 @@ body {
   /* no longer used as a full-page hero, but safe to leave if present */
 }
 
-/* Blog expand / collapse */
-
-.blog-toggle-row {
-  margin-top: 1rem;
-}
-
-.blog-toggle-btn {
-  font-size: 0.85rem;
-  padding: 0.35rem 0.9rem;
-}
-
-/* Collapsed: show nothing */
-.blog-expand-wrapper {
-  position: relative;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s ease;
-}
-
 /* Optional hook class – no fixed max-height here anymore */
 .blog-expand-wrapper.expanded {
   /* max-height is set dynamically via JS */
@@ -1297,6 +1278,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
