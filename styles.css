@@ -1107,15 +1107,12 @@ body {
   border-bottom: 1px solid rgba(148, 163, 184, 0.3);
 }
 
-.blog-card {
-  margin-bottom: 1rem;
+.blog-meta {
+  opacity: 0.85;
 }
 
-.blog-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  opacity: 0.85;
+.blog-toggle-row {
+  margin-top: 1rem;
 }
 
 .blog-card-header {
@@ -1289,6 +1286,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 
 
