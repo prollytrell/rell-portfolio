@@ -4,82 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Terrell Grenyion</title>
+  <meta name="description" content="Selected projects by Terrell Grenyion: GRC and risk management deliverables, vulnerability remediation, SOAR automation, SOC training, and a detection homelab." />
+  <link rel="canonical" href="https://www.terrellgrenyion.com/projects/" />
 
-  <!-- Same fonts -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Terrell Grenyion" />
+  <meta property="og:title" content="Projects | Terrell Grenyion" />
+  <meta property="og:description" content="GRC, risk, vulnerability management, and security operations projects." />
+  <meta property="og:url" content="https://www.terrellgrenyion.com/projects/" />
+  <meta name="twitter:card" content="summary" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="../styles.css" />
-    <script>
-    (function () {
-      const STORAGE_KEY = 'siteTheme';
-      const root = document.documentElement;
-
-      function apply(theme) {
-        if (theme === 'light') {
-          root.classList.add('theme-light');
-        } else {
-          root.classList.remove('theme-light');
-        }
-      }
-
-      let stored = null;
-      try {
-        stored = sessionStorage.getItem(STORAGE_KEY);
-      } catch (e) {
-        stored = null;
-      }
-
-      if (stored === 'light' || stored === 'dark') {
-        apply(stored);
-      } else {
-        // default to dark
-        apply('dark');
-      }
-
-      window.__setTheme = function (theme) {
-        apply(theme);
-        try {
-          sessionStorage.setItem(STORAGE_KEY, theme);
-        } catch (e) {}
-      };
-
-      window.__toggleTheme = function () {
-        const isLight = !root.classList.contains('theme-light');
-        window.__setTheme(isLight ? 'light' : 'dark');
-      };
-    })();
-  </script>
-
+  <script src="/assets/js/theme.js"></script>
+  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
   <header class="site-header">
-  <div class="container header-inner">
-    <div class="logo-mark">
-      <span class="logo-symbol">&gt;</span>
-      <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+    <div class="container header-inner">
+      <a class="logo-mark" href="/" aria-label="Terrell Grenyion — home">
+        <span class="logo-symbol">&gt;</span>
+        <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/projects/" class="nav-link active" aria-current="page">Projects</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">
+          <span class="theme-toggle-label-light">LIGHT</span>
+          <span class="theme-toggle-label-dark">DARK</span>
+        </span>
+      </button>
     </div>
-
-    <nav class="main-nav">
-      <a href="../" class="nav-link">Home</a>
-      <a href="/projects" class="nav-link">Projects</a>
-      <a href="/blog" class="nav-link">Blog</a>
-    </nav>
-
-    <button class="theme-toggle" type="button" aria-label="Toggle color theme">
-      <span class="theme-toggle-track">
-        <span class="theme-toggle-thumb"></span>
-      </span>
-      <span class="theme-toggle-label">
-        <span class="theme-toggle-label-light">LIGHT</span>
-        <span class="theme-toggle-label-dark">DARK</span>
-      </span>
-    </button>
-  </div>
-</header>
-
-
+  </header>
 
   <main>
     <section class="hero hero-compact">
@@ -87,7 +56,8 @@
         <p class="hero-kicker">PORTFOLIO</p>
         <h1 class="hero-title">Selected Projects</h1>
         <p class="hero-subtitle">
-          A snapshot of the work I've done across GRC, risk assessments, security operations, and privacy-focused initiatives.
+          Work across governance, risk, and compliance, vulnerability management, and security operations.
+          Professional projects are described without client data; academic projects link to the original deliverables.
         </p>
       </div>
     </section>
@@ -96,14 +66,14 @@
       <div class="container">
         <div class="projects-grid">
 
-          <!-- Professional Projects Header -->
-          <h2 class="section-subheader">Professional Projects</h2>
+          <!-- ============ Professional ============ -->
+          <h2 class="section-subheader" id="professional">Professional Projects</h2>
 
-          <!-- Professional Project Card 1 -->
+                    <!-- Professional Project Card 1 -->
           <article class="project-card">
             <div class="project-tag">GRC • Nonprofit</div>
             <h2 class="project-title">Critical Function & Light BIA Assessment for Global NGO</h2>
-            <p class="project-meta">CyberPeace Institute – 2025</p>
+            <p class="project-meta">CyberPeace Institute (CyberPeace Builders volunteer program) – 2025</p>
             <p class="project-summary">
               Performed a lightweight BIA-style assessment to identify critical functions, operational dependencies, 
               and high-impact processes for a resource-constrained nonprofit environment.
@@ -120,10 +90,61 @@
               <a href="https://github.com/prollytrell/rell-portfolio-deliverables/raw/main/NonProfit%20Critical%20Functions%20Meeting%20Outline.pdf" class="project-link" target="_blank" rel="noopener noreferrer">View Outline</a>
             </div>
           </article>
+
+          <article class="project-card">
+            <div class="project-tag">Vulnerability Management • Automation</div>
+            <h2 class="project-title">Reusable Automox Remediation Worklets</h2>
+            <p class="project-meta">Cybriant – 2026</p>
+            <p class="project-summary">
+              PowerShell worklets that remediate vulnerability findings and schedule reboots through Automox, built to be
+              reused across clients rather than written one-off.
+            </p>
+            <ul class="project-bullets">
+              <li>Workaround-first remediation where a vendor patch was not yet approved, with direct patch worklets ready once installers were provided.</li>
+              <li>Developed and tested in an isolated Windows VM lab before moving to a corporate test machine.</li>
+              <li>Reboots handled through Automox policy settings rather than inside the script, keeping remediation logic and scheduling separate.</li>
+              <li>Part of a wider effort to modernize vulnerability management: remediation SLAs, metrics, and Tenable–Automox integration.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Security Automation • SOAR</div>
+            <h2 class="project-title">AI-Assisted SOAR Playbooks in Google Security Operations</h2>
+            <p class="project-meta">Cybriant – 2026</p>
+            <p class="project-summary">
+              SOAR playbooks for a SOC handling roughly 10,000 cases a month, where automation collects the evidence,
+              Gemini summarizes it, and an analyst validates the summary before any decision is made.
+            </p>
+            <ul class="project-bullets">
+              <li>Separate branches for curated and custom detection rules, with a fallback to raw UDM events when alert data is thin.</li>
+              <li>Structured JSON input and an engineered prompt so summaries are consistent and reviewable.</li>
+              <li>Analysts keep decision authority over severity, disposition, and response actions.</li>
+              <li>Evaluated on evidence quality, analyst efficiency, client ticket quality, token cost, and vendor risk.</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-tag">Security Operations • Analyst Training</div>
+            <h2 class="project-title">SentinelOne-Style SOC Training Simulator</h2>
+            <p class="project-meta">Cybriant – 2026</p>
+            <p class="project-summary">
+              An interactive investigation simulator, packaged as SCORM, that trains analysts to work an EDR alert the
+              way a senior analyst would: gather endpoint evidence first, decide on escalation, then write a ticket the
+              client can act on.
+            </p>
+            <ul class="project-bullets">
+              <li>Five investigation scenarios: suspicious network activity, ransomware, registry persistence, scheduled-task persistence, and an approved deployment (a benign case that tests restraint).</li>
+              <li>Analysts pull command lines, publishers, hashes, mitigation status, and endpoint context before choosing what to query.</li>
+              <li>Includes event-search filters, disposition and escalation decisions, and ticket writing.</li>
+              <li>Paired with an alert-board reference covering alert types, hash reputation checks, and how much evidence a client needs to act.</li>
+            </ul>
+          </article>
+
           <hr class="section-divider" />
 
-          <!-- Academic Projects Header -->
-          <h2 class="section-subheader">Academic Projects</h2>
+          <!-- ============ Academic ============ -->
+          <h2 class="section-subheader" id="academic">Academic Projects</h2>
+          <p class="section-intro">Graduate and undergraduate coursework at Kennesaw State University.</p>
 
           <!-- Academic Project Card 0: Healthcare Risk Management with Clearwater IRM -->
           <article class="project-card">
@@ -209,6 +230,27 @@
             </div>
           </article>
 
+          <hr class="section-divider" />
+
+          <!-- ============ Lab & Engineering ============ -->
+          <h2 class="section-subheader" id="lab">Lab &amp; Engineering Projects</h2>
+          <p class="section-intro">Personal builds for hands-on practice outside of work.</p>
+
+          <article class="project-card">
+            <div class="project-tag">Detection Engineering • Homelab</div>
+            <h2 class="project-title">Wazuh Security Homelab <span class="project-status">IN PROGRESS</span></h2>
+            <p class="project-meta">Personal Lab – 2026</p>
+            <p class="project-summary">
+              A virtualized detection lab on a Fedora host: a Wazuh all-in-one server, a Windows 11 endpoint, and an
+              Ubuntu security-tools VM, built to generate real telemetry and test detections end to end.
+            </p>
+            <ul class="project-bullets">
+              <li>Provisioned three VMs with libvirt and verified Wazuh file integrity monitoring on the Windows endpoint.</li>
+              <li>Next: Windows and Sysmon telemetry, attack simulation, tested detections with alert-coverage tracking, and a Python/API controller.</li>
+              <li>Documented as objective, setup, test, troubleshooting, and result, so the lessons are reusable.</li>
+            </ul>
+          </article>
+
         </div>
       </div>
     </section>
@@ -218,30 +260,8 @@
     <div class="container footer-inner">
       <span>&copy; <span id="year"></span> Terrell Grenyion</span>
       <span class="divider">•</span>
-      <span>GRC • Risk • Privacy • Security Operations</span>
+      <span>GRC • Risk • Audit Readiness • Security Operations</span>
     </div>
   </footer>
-
-  <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-<script>
-  (function () {
-    const toggle = document.querySelector('.theme-toggle');
-    if (!toggle) return;
-
-    toggle.addEventListener('click', function () {
-      if (typeof window.__toggleTheme === 'function') {
-        window.__toggleTheme();
-      }
-    });
-  })();
-</script>
 </body>
 </html>
-
-
-
-
-
-

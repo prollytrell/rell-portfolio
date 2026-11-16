@@ -167,16 +167,6 @@
   color: #334155;
 }
 
-/* Light-mode skill pills */
-.captcha-modal input {
-  background: #ffffff !important;
-  color: #0f172a;
-  border: 1px solid rgba(30, 41, 59, 0.35);
-  padding: 0.5rem 0.6rem;
-  border-radius: 6px;
-  font-family: "JetBrains Mono", monospace;
-}
-
 /* Blog table */
 
 .theme-light .blog-table th {
@@ -186,20 +176,6 @@
 
 .theme-light .blog-table td {
   background: #f9fafb;
-}
-
-/* Captcha modal */
-
-.theme-light .captcha-modal {
-  background: #ffffff;
-  border-color: rgba(148, 163, 184, 0.8);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
-}
-
-.captcha-modal input {
-  background: #ffffff !important;
-  color: #0f172a;
-  border: 1px solid rgba(30, 41, 59, 0.3);
 }
 
 /* Softer shadows overall in light mode */
@@ -543,120 +519,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-}
-
-/* === Phone hover + glitch reveal (compact, same color, width-matched) === */
-
-.phone-hover-wrapper {
-  position: relative;
-  display: inline-block; /* wrapper width = phone number width */
-}
-
-.phone-number {
-  position: relative;
-  display: inline-block;
-  opacity: 0;                  /* hidden until hover/active */
-  transition: opacity 0.15s ease-out;
-  font-weight: 500;
-  color: #e5e7eb;              /* same color as like email */
-}
-
-/* Glitch layers */
-.phone-number::before,
-.phone-number::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  opacity: 0;
-  clip-path: inset(0 0 0 0);
-}
-
-/* Cyan offset */
-.phone-number::before {
-  text-shadow: -2px 0 var(--accent);
-}
-
-/* Magenta/red offset */
-.phone-number::after {
-  text-shadow: 2px 0 #f472b6;
-}
-
-/* Cover overlay – same width as number (wrapper) */
-.phone-cover {
-  position: absolute;
-  inset: -1px 0 auto 0;     /* top + left + right, height auto */
-  padding: 0 0.35rem;
-  font-size: 0.75rem;
-  border-radius: 4px;
-  background: rgba(15, 23, 42, 0.95);
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  color: var(--muted);
-  cursor: pointer;
-  white-space: nowrap;
-  text-align: center;
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
-  z-index: 5;
-}
-
-/* Light mode adjustments – phone reveal */
-
-.theme-light .phone-number {
-  color: #020617; /* dark text */
-}
-
-.theme-light .phone-cover {
-  background: #e5f0ff;
-  border-color: rgba(148, 163, 184, 0.9);
-  color: #020617;
-}
-
-/* Tone down the glitch glow a bit on light */
-
-.theme-light .phone-number::before {
-  text-shadow: -1px 0 #0ea5e9;
-}
-
-.theme-light .phone-number::after {
-  text-shadow: 1px 0 #f97373;
-}
-
-
-/* Hover / hold: reveal + glitch – only after captcha */
-.human-verified .phone-hover-wrapper:hover .phone-cover,
-.human-verified .phone-hover-wrapper:active .phone-cover {
-  opacity: 0;
-  transform: translateY(-1px);
-}
-
-.human-verified .phone-hover-wrapper:hover .phone-number,
-.human-verified .phone-hover-wrapper:active .phone-number {
-  opacity: 1;
-  animation: phone-glitch 280ms steps(2, end);
-}
-
-.human-verified .phone-hover-wrapper:hover .phone-number::before,
-.human-verified .phone-hover-wrapper:hover .phone-number::after,
-.human-verified .phone-hover-wrapper:active .phone-number::before,
-.human-verified .phone-hover-wrapper:active .phone-number::after {
-  animation: phone-glitch-offset 320ms steps(2, end) forwards;
-}
-
-/* Glitch keyframes */
-@keyframes phone-glitch {
-  0%   { transform: translate(0, 0); }
-  25%  { transform: translate(-1px, -1px); }
-  50%  { transform: translate(1px, 1px); }
-  75%  { transform: translate(-1px, 1px); }
-  100% { transform: translate(0, 0); }
-}
-
-@keyframes phone-glitch-offset {
-  0%   { opacity: 1; clip-path: inset(0 0 80% 0); }
-  25%  { opacity: 1; clip-path: inset(10% 0 60% 0); }
-  50%  { opacity: 1; clip-path: inset(40% 0 30% 0); }
-  75%  { opacity: 0.6; clip-path: inset(70% 0 5% 0); }
-  100% { opacity: 0; clip-path: inset(0 0 0 0); }
 }
 
 /* Right hero panel */
@@ -1137,85 +999,6 @@ body {
   display: none !important;
 }
 
-/* Simple captcha modal */
-
-.captcha-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.85);
-  display: none; /* hidden by default */
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
-}
-
-.captcha-backdrop.active {
-  display: flex;
-}
-
-.captcha-modal {
-  width: 100%;
-  max-width: 360px;
-  background: rgba(15, 23, 42, 0.98);
-  border-radius: var(--radius-lg);
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  padding: 1.4rem 1.3rem;
-  box-shadow: var(--shadow-soft);
-}
-
-.captcha-title {
-  margin: 0 0 0.5rem;
-  font-family: "JetBrains Mono", ui-monospace;
-  font-size: 0.95rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.captcha-text {
-  margin: 0 0 0.6rem;
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-.captcha-question {
-  margin: 0 0 0.8rem;
-  font-size: 0.9rem;
-  color: var(--text);
-  font-weight: 500;
-}
-
-.captcha-input {
-  width: 100%;
-  padding: 0.45rem 0.6rem;
-  border-radius: 8px;
-  border: 1px solid rgba(148, 163, 184, 0.7);
-  background: #020617;
-  color: var(--text);
-  font-family: inherit;
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
-}
-
-.captcha-input:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.5);
-}
-
-.captcha-actions {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 0.4rem;
-}
-
-.captcha-error {
-  margin: 0;
-  font-size: 0.8rem;
-  color: var(--danger);
-  min-height: 1em;
-}
-
-
 /* Footer */
 
 .site-footer {
@@ -1293,36 +1076,141 @@ body {
 
 }
 
+/* ===================================================================
+   Additions — Nov 2026 revamp
+   =================================================================== */
 
+/* Skill groups (home) */
+.skill-group + .skill-group {
+  margin-top: 1.5rem;
+}
 
+.skill-group .subheading {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+}
 
+/* Certification groups (home) */
+.cert-group + .cert-group {
+  margin-top: 1.25rem;
+}
 
+.cert-group .subheading {
+  margin-top: 0;
+}
 
+.cert-status {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  vertical-align: middle;
+}
 
+/* Publications (home) */
+.publication-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
 
+.publication-item {
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+}
 
+.publication-item h3 {
+  margin: 0 0 0.25rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  color: var(--text);
+}
 
+.publication-item .project-meta {
+  margin-bottom: 0.5rem;
+}
 
+.publication-item p {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+}
 
+/* "In progress" marker on project cards */
+.project-status {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
 
+/* Section intro text under a sub-header on Projects */
+.section-intro {
+  color: var(--muted);
+  margin: -0.5rem 0 0.5rem;
+  max-width: 70ch;
+}
 
+/* Coursework line under Education */
+.coursework {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
 
+/* Visually hidden (screen-reader only) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 
+/* Group headers on the Projects page */
+.section-subheader {
+  font-family: "JetBrains Mono", ui-monospace;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin: 1rem 0 0.25rem;
+}
 
+/* Logo is now a link back home */
+a.logo-mark {
+  text-decoration: none;
+  color: inherit;
+}
 
+/* Two stacked role headers (promotion within one employer) */
+.timeline-header + .timeline-header {
+  margin-top: 0.35rem;
+}
 
+/* Post titles in the blog list */
+.blog-card-title {
+  font-family: "JetBrains Mono", ui-monospace;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin: 0.25rem 0 0.5rem;
+  color: var(--text);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.coursework a {
+  color: var(--accent);
+}
