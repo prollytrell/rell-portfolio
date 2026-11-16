@@ -3,316 +3,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terrell Grenyion | GRC • Risk • Privacy • InfoSec</title>
+  <title>Terrell Grenyion | Lead Security Analyst — Security Operations, Vulnerability Management, Automation &amp; GRC</title>
+  <meta name="description" content="Terrell Grenyion is a Lead Security Analyst at an MSSP working where security operations meets GRC: SOC investigations, vulnerability and patch management, SOAR automation, and audit readiness." />
+  <link rel="canonical" href="https://www.terrellgrenyion.com/" />
+
+  <!-- Link previews (LinkedIn, Slack, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Terrell Grenyion" />
+  <meta property="og:title" content="Terrell Grenyion | Lead Security Analyst" />
+  <meta property="og:description" content="Security operations, vulnerability management, automation, and GRC. Portfolio, projects, and writing." />
+  <meta property="og:url" content="https://www.terrellgrenyion.com/" />
+  <meta name="twitter:card" content="summary" />
 
   <!-- Fonts: JetBrains Mono (headings), IBM Plex Mono (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 
-	  <script>
-    (function () {
-      const STORAGE_KEY = 'siteTheme';
-      const root = document.documentElement;
-
-      function apply(theme) {
-        if (theme === 'light') {
-          root.classList.add('theme-light');
-        } else {
-          root.classList.remove('theme-light');
-        }
-      }
-
-      let stored = null;
-      try {
-        stored = sessionStorage.getItem(STORAGE_KEY);
-      } catch (e) {
-        stored = null;
-      }
-
-      if (stored === 'light' || stored === 'dark') {
-        apply(stored);
-      } else {
-        // default to dark
-        apply('dark');
-      }
-
-      window.__setTheme = function (theme) {
-        apply(theme);
-        try {
-          sessionStorage.setItem(STORAGE_KEY, theme);
-        } catch (e) {}
-      };
-
-      window.__toggleTheme = function () {
-        const isLight = !root.classList.contains('theme-light');
-        window.__setTheme(isLight ? 'light' : 'dark');
-      };
-    })();
-  </script>
-
-
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-
+  <script src="/assets/js/theme.js"></script>
+  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
-  <!-- Top nav -->
   <header class="site-header">
-  <div class="container header-inner">
-    <div class="logo-mark">
-      <span class="logo-symbol">&gt;</span>
-      <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+    <div class="container header-inner">
+      <a class="logo-mark" href="/" aria-label="Terrell Grenyion — home">
+        <span class="logo-symbol">&gt;</span>
+        <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main">
+        <a href="/" class="nav-link active" aria-current="page">Home</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">
+          <span class="theme-toggle-label-light">LIGHT</span>
+          <span class="theme-toggle-label-dark">DARK</span>
+        </span>
+      </button>
     </div>
+  </header>
 
-    <nav class="main-nav">
-      <a href="../" class="nav-link">Home</a>
-      <a href="/projects" class="nav-link">Projects</a>
-      <a href="/blog" class="nav-link">Blog</a>
-    </nav>
-
-    <button class="theme-toggle" type="button" aria-label="Toggle color theme">
-      <span class="theme-toggle-track">
-        <span class="theme-toggle-thumb"></span>
-      </span>
-      <span class="theme-toggle-label">
-        <span class="theme-toggle-label-light">LIGHT</span>
-        <span class="theme-toggle-label-dark">DARK</span>
-      </span>
-    </button>
-  </div>
-</header>
-
-
-
-  <!-- Hero / Intro -->
   <main>
+    <!-- Hero -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="hero-kicker">INFOSEC • GRC • PRIVACY</p>
+          <p class="hero-kicker">SECURITY OPERATIONS • VULNERABILITY MANAGEMENT • AUTOMATION • GRC</p>
           <h1 class="hero-title">Terrell Grenyion</h1>
           <p class="hero-subtitle">
-            Senior Security Analyst with 3+ years of experience supporting SOC 2 compliance, risk management initiatives, 
-  			and security policy and awareness training development. Strong GRC focus backed by hands-on SOC Level II experience, enabling 
- 			practical, execution-driven risk assessments and control recommendations.
+            Lead Security Analyst at a managed security services provider (MSSP), working where security operations
+            meets governance, risk, and compliance. I lead SOC investigations across 25 client environments, own
+            vulnerability and patch management, and turn recurring problems into documented, repeatable processes:
+            security policies and approval workflows, standardized incident reporting, AI-assisted SOAR playbooks,
+            and analyst training.
           </p>
           <div class="hero-meta">
-  	   <span>Houston, TX</span>
-  	   <span class="divider">•</span>
-
-  	   <span>Phone:</span>
-  	   <span class="phone-hover-wrapper">
-    	     <span class="phone-number" data-text="561-876-7766">561-876-7766</span>
-    	     <span class="phone-cover">View Phone</span>
-  	   </span>
-
-  	   <span class="divider">•</span>
-  	   <a id="hero-email" href="mailto:terrell@grenyionadvisory.com">terrell@grenyionadvisory.com</a>
-
- 	   <span class="divider">•</span>
-  	   <a href="https://www.linkedin.com/in/terrell-grenyion" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-	  </div>
+            <span>Houston, TX (Relocating to Los Angeles, CA – Oct 2027)</span>
+            <span class="divider">•</span>
+            <a href="mailto:terrellgrenyion@gmail.com">terrellgrenyion@gmail.com</a>
+            <span class="divider">•</span>
+            <a href="https://www.linkedin.com/in/terrell-grenyion" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span class="divider">•</span>
+            <a href="https://github.com/prollytrell" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </div>
 
           <div class="hero-actions">
-            <a href="/projects" class="btn primary-btn">View My Projects</a>
-            <a href="mailto:terrellgrenyion@hotmail.com" class="btn ghost-btn" id="contact-me-btn">Contact Me</a>
+            <a href="/projects/" class="btn primary-btn">View My Projects</a>
+            <a href="mailto:terrellgrenyion@gmail.com" class="btn ghost-btn">Contact Me</a>
           </div>
         </div>
+
         <div class="hero-panel">
           <div class="status-card">
             <h2 class="status-title">Current Focus</h2>
             <ul class="status-list">
               <li>Lead Security Analyst @ Cybriant</li>
-              <li>GRC & Cybersecurity Support @ CyberPeace Institute</li>
-              <li>Actively pursuing CISA & CIPP/US</li>
+              <li>Modernizing the vulnerability management program</li>
+              <li>Studying for ISACA CISA (expected 2027)</li>
+              <li>Volunteer, CyberPeace Builders @ CyberPeace Institute</li>
             </ul>
           </div>
           <div class="badge-card">
             <p class="badge-label">Core Domains</p>
-            <p class="badge-tags">Risk Assessments • GRC • Privacy • SIEM • Incident Response • AI Advisement & Implementation</p>
+            <p class="badge-tags">SOC Leadership • Incident Response • Vulnerability Management • SOAR &amp; Automation • GRC &amp; Audit Readiness • Cloud Security</p>
           </div>
         </div>
       </div>
     </section>
 
-	    <!-- Education & Certifications -->
-    <section class="section section-grid">
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+
+        <div class="timeline">
+
+          <article class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="item-title">Lead Security Analyst</h3>
+              <span class="item-org">Cybriant</span>
+              <span class="item-dates">Sep 2026 – Present</span>
+            </div>
+            <div class="timeline-header">
+              <h3 class="item-title">Security Analyst</h3>
+              <span class="item-org">Cybriant</span>
+              <span class="item-dates">Aug 2024 – Sep 2026</span>
+            </div>
+            <ul class="item-list">
+              <li>Lead SOC operations and complex investigations across endpoint, identity, network, cloud, and email for 25 client environments, validating evidence, coordinating containment with client teams, and mentoring 6 analysts.</li>
+              <li>Authored security policies and procedures for AI use, endpoint protection changes, SentinelOne exclusions, agent disablement, user permission changes, video-conference screen sharing, SOAR change management, and risk acceptance waivers, giving the SOC documented, auditable approval processes.</li>
+              <li>Took charge of enhanced monitoring for high-risk clients, adding direct monitoring outside SOAR, daily client updates, and phone or Teams verification of suspicious activity before escalation.</li>
+              <li>Standardized the SOC incident report structure to separate confirmed facts, hypotheses, coverage gaps, actions, and deadlines; applied it to suspected penetration-test activity, including a visibility and missing-telemetry review; review analyst ticket quality.</li>
+              <li>Build and administer SOAR playbooks in Google Security Operations for a SOC handling approximately 10,000 cases per month, including AI-assisted workflows where Gemini summarizes collected evidence for analyst validation; evaluated evidence quality, analyst efficiency, token cost, and vendor risk.</li>
+              <li>Own vulnerability and patch management across client environments: scan with Tenable, deploy patches through Automox and ManageEngine, prioritize remediation by exploitability, write PowerShell Automox worklets for remediation and scheduled reboots, and recommend automated, scheduled patching to a ManageEngine client after investigating its failed manual deployments.</li>
+              <li>Maintain an accurate asset inventory across SIEM, EDR, patching, and vulnerability management platforms, reconciling endpoints visible in SIEM and EDR but missing from patching and vulnerability scanning, supporting agent installation to close coverage gaps, and removing devices disconnected 30+ days.</li>
+              <li>Lead modernization of the vulnerability management program: mapping the patching and reporting workflow, defining remediation SLAs and metrics, evaluating Tenable–Automox integration, and partnering with Engineering and Customer Success to automate client reporting.</li>
+              <li>Built a SentinelOne-style SOC training simulator (SCORM) with five investigation scenarios and an alert-board reference, training analysts to gather endpoint evidence, decide on escalation, and write client-ready tickets.</li>
+              <li>Own the company security awareness and phishing simulation program for approximately 50 employees, building campaigns and training from real threats seen in the SOC; building a self-hosted phishing simulation platform with the VP of Engineering.</li>
+              <li>Support SOC 2, CMMC, and Google audit readiness with control evidence and policy development; drafted governance action items for IAM standardization, scoped access procedures, and a tool inventory, and proposed automated GCP access reviews with continuous audit reporting.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-header">
+              <h3 class="item-title">Technical Account Manager</h3>
+              <span class="item-org">Cybriant</span>
+              <span class="item-dates">Apr 2023 – Aug 2024</span>
+            </div>
+            <ul class="item-list">
+              <li>Produced weekly security reports for 23 clients and security posture and risk reports identifying control gaps, recommending improvements aligned with client risk and regulatory requirements in coordination with Sales, Engineering, and the SOC.</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skill-group">
+          <h3 class="subheading">Security Operations &amp; Incident Response</h3>
+          <div class="pill-grid">
+            <span class="pill">SOC Leadership</span>
+            <span class="pill">Incident Response</span>
+            <span class="pill">Threat Detection</span>
+            <span class="pill">Alert Triage &amp; Escalation</span>
+            <span class="pill">SIEM</span>
+            <span class="pill">EDR</span>
+            <span class="pill">MITRE ATT&amp;CK</span>
+            <span class="pill">Incident Reporting</span>
+            <span class="pill">Analyst Training</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="subheading">Vulnerability &amp; Patch Management</h3>
+          <div class="pill-grid">
+            <span class="pill">Vulnerability Scanning</span>
+            <span class="pill">Risk-Based Prioritization (CVSS, EPSS, CISA KEV)</span>
+            <span class="pill">Patch Automation</span>
+            <span class="pill">Asset Inventory Hygiene</span>
+            <span class="pill">Remediation SLAs &amp; Metrics</span>
+            <span class="pill">PowerShell (Automox Worklets)</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="subheading">Security Automation &amp; Engineering</h3>
+          <div class="pill-grid">
+            <span class="pill">SOAR</span>
+            <span class="pill">Playbook Development</span>
+            <span class="pill">Workflow Automation</span>
+            <span class="pill">AI-Assisted Analyst Workflows</span>
+            <span class="pill">Python</span>
+            <span class="pill">Cloud Security (Google Cloud)</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="subheading">Governance, Risk &amp; Compliance</h3>
+          <div class="pill-grid">
+            <span class="pill">Risk Assessment</span>
+            <span class="pill">Risk Acceptance</span>
+            <span class="pill">Policy &amp; Procedure Development</span>
+            <span class="pill">Control Evidence</span>
+            <span class="pill">Audit Readiness</span>
+            <span class="pill">Access Management</span>
+            <span class="pill">SOC 2</span>
+            <span class="pill">CMMC</span>
+            <span class="pill">NIST CSF 2.0</span>
+            <span class="pill">NIST SP 800-53</span>
+            <span class="pill">AI Governance</span>
+            <span class="pill">Security Awareness &amp; Phishing Simulation</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <h3 class="subheading">Platforms &amp; Cloud</h3>
+          <div class="pill-grid">
+            <span class="pill">Google Security Operations (SIEM &amp; SOAR)</span>
+            <span class="pill">Google Cloud</span>
+            <span class="pill">SentinelOne</span>
+            <span class="pill">Tenable</span>
+            <span class="pill">Automox</span>
+            <span class="pill">ManageEngine</span>
+            <span class="pill">GoPhish</span>
+            <span class="pill">Zoho Learn</span>
+            <span class="pill">Clearwater IRM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications & Education -->
+    <section class="section section-grid" id="credentials">
       <div class="container grid-2">
-        <!-- Education -->
+        <div>
+          <h2 class="section-title">Certifications</h2>
+
+          <div class="cert-group">
+            <h3 class="subheading">Google Cloud</h3>
+            <ul class="links-list">
+              <li><a href="https://www.credly.com/badges/b6265b3b-4f48-4069-8cb1-8df2fa992119/linked_in_profile" target="_blank" rel="noopener noreferrer">Professional Security Operations Engineer</a></li>
+              <li><a href="https://www.credly.com/badges/e10b3ba8-2fe5-4656-b401-546cff00ebcb/linked_in_profile" target="_blank" rel="noopener noreferrer">Professional Cloud Security Engineer</a></li>
+            </ul>
+          </div>
+
+          <div class="cert-group">
+            <h3 class="subheading">CompTIA</h3>
+            <ul class="links-list">
+              <li><a href="https://www.credly.com/badges/8cdcd680-4202-4bfa-af53-4f6bde42a55c/linked_in_profile" target="_blank" rel="noopener noreferrer">Cybersecurity Analyst (CySA+)</a></li>
+              <li><a href="https://www.credly.com/badges/a23738ab-e1ae-4cc1-97af-3e557962abbd/linked_in_profile" target="_blank" rel="noopener noreferrer">Security+</a></li>
+              <li>Security Analytics Professional (CSAP)</li>
+            </ul>
+          </div>
+
+          <div class="cert-group">
+            <h3 class="subheading">Vendor</h3>
+            <ul class="links-list">
+              <li>Automox — Essentials, Practitioner, Pro, Security Risk Management</li>
+              <li>Tenable MSSP Practitioner</li>
+              <li><a href="https://www.credly.com/badges/c82be774-e20c-438f-8965-b47cffba00c7/linked_in_profile" target="_blank" rel="noopener noreferrer">SentinelOne Core Support Professional</a></li>
+            </ul>
+          </div>
+
+          <div class="cert-group">
+            <h3 class="subheading">In Progress</h3>
+            <ul class="links-list">
+              <li>ISACA Certified Information Systems Auditor (CISA) <span class="cert-status">Expected Apr 2027</span></li>
+            </ul>
+          </div>
+        </div>
+
         <div>
           <h2 class="section-title">Education</h2>
           <ul class="info-list">
-		    <li>
-              <strong>Kennesaw State University</strong><br />
-              Master of Science (Information Systems)<br />
-			</li>
             <li>
-              <strong>Kennesaw State University</strong><br />
-              Graduate Certificate (Information Security & Assurance)<br />
+              <strong>Master of Science, Information Systems</strong><br />
+              Kennesaw State University · 2026
             </li>
             <li>
-              <strong>Kennesaw State University</strong><br />
-              Bachelor of Science (Cybersecurity)<br />
-			</li>
+              <strong>Graduate Certificate, Information Security &amp; Assurance</strong><br />
+              Kennesaw State University · 2026
+            </li>
+            <li>
+              <strong>Bachelor of Science, Cybersecurity</strong><br />
+              Kennesaw State University · 2024
+            </li>
           </ul>
-        </div>
-
-        <!-- Certifications -->
-        <div>
-          <h2 class="section-title">Certifications</h2>
-          <ul class="info-list">
-            <li>CompTIA Cybersecurity Analyst (CySA+) ce</li>
-            <li>CompTIA Security+ ce</li>
-            <li>Google Cloud Professional Security Operations Engineer</li>
-			<li>Google Professional Cloud Security Engineer</li>
-            <li>SentinelOne Core Support Professional</li>
-          </ul>
-
-          <h3 class="subheading">Credly Badges</h3>
-          <ul class="links-list">
-            <li><a href="https://www.credly.com/badges/8cdcd680-4202-4bfa-af53-4f6bde42a55c/linked_in_profile" target="_blank" rel="noopener noreferrer">Cybersecurity Analyst (CySA+) ce Badge</a></li>
-            <li><a href="https://www.credly.com/badges/a23738ab-e1ae-4cc1-97af-3e557962abbd/linked_in_profile" target="_blank" rel="noopener noreferrer">Security+ Badge</a></li>
-            <li><a href="https://www.credly.com/badges/b6265b3b-4f48-4069-8cb1-8df2fa992119/linked_in_profile" target="_blank" rel="noopener noreferrer">Google Cloud Professional Security Operations Engineer</a></li>
-			<li><a href="https://www.credly.com/badges/e10b3ba8-2fe5-4656-b401-546cff00ebcb/linked_in_profile" target="_blank" rel="noopener noreferrer">Google Professional Cloud Security Engineer</a></li>
-            <li><a href="https://www.credly.com/badges/c82be774-e20c-438f-8965-b47cffba00c7/linked_in_profile" target="_blank" rel="noopener noreferrer">SentinelOne Core Support Professional</a></li>
-          </ul>
+          <p class="coursework">
+            <strong>Relevant coursework:</strong> Ethical Hacking, Cyber Defense, Network Security, Securing Enterprise
+            Infrastructure, Linux/Unix Administration, Computer Forensics, Incident Response &amp; Contingency Planning,
+            Governance, Risk Management &amp; Compliance, Management of Cybersecurity, Disaster Recovery &amp; Business
+            Continuity Planning. Academic deliverables are on the <a href="/projects/#academic">Projects</a> page.
+          </p>
         </div>
       </div>
     </section>
-	  
-    <!-- Experience -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Experience</h2>
 
-    <div class="timeline">
-
-	  <article class="timeline-item">
-        <div class="timeline-header">
-          <h3 class="item-title">Senior Security Analyst</h3>
-          <span class="item-org">Cybriant</span>
-          <span class="item-dates">Sep 2026 – Present</span>
-        </div>
-       <ul class="item-list">
- 		 <li>Drive the SOC’s transition toward agentic operations by redesigning AI-assisted Google SecOps/SOAR and Gemini workflows, defining source precedence, analyst-validation gates, and human decision authority over severity, disposition, and response actions.</li>
- 		 <li>Coordinate assigned audit-readiness and evidence activities for SOC 2, CMMC, and Google audits, including control mapping, evidence validation, gap tracking, documentation, and remediation follow-up with control owners.</li>
-  		 <li>Develop and deliver organization-wide security awareness training through interactive live sessions, phishing simulations, and self-paced Zoho Learn modules with knowledge checks, aligning content with current attack trends and applicable compliance requirements.</li>
- 		 <li>Train and mentor SOC analysts on investigative reasoning, escalation procedures, ticket quality, client communication, and consistent use of security tools and playbooks; serve as a senior escalation and reference point for complex cases.</li>
- 		 <li>Develop and standardize security policies, procedures, playbooks, and risk-acceptance documentation governing SOAR changes, endpoint-protection modifications, SentinelOne permissions, exclusions, and agent disablement.</li>
- 		 <li>Lead complex incident-response and enhanced-monitoring engagements by coordinating direct review of client environments, rapid validation of suspicious activity, containment and remediation efforts, daily stakeholder updates, and post-incident documentation.</li>
-		</ul>
-      </article>
-		
-      <article class="timeline-item">
-        <div class="timeline-header">
-          <h3 class="item-title">Security Analyst</h3>
-          <span class="item-org">Cybriant</span>
-          <span class="item-dates">Aug 2024 – Present</span>
-        </div>
-        <ul class="item-list">
-          <li>Contribute to governance initiatives through policy (e.g. Change Management Policy, Endpoint Security Configuration and Protection Modification Policy) & procedure recommendation and development (e.g., SOAR Change Management Procedure, Client Risk Acceptance Waiver Template, Disabling Agents in SentinelOne, Changing User Permissions in SentinelOne, and Exclusion Management in SentinelOne)</li>
-          <li>Lead incident investigations using SIEM, EDR, and SOAR platforms (SentinelOne, Google SecOps, Azure Sentinel).</li>
-          <li>Engaging security awareness training development (Mock Phishing Campaigns, Jeopardy Style Security Trivia, Review of common IOCs from recent attack trends from previous quarter), and alignment with regulatory and client requirements (CMMC & SOC2</li>
-          <li>Lead incident investigations using enterprise SIEM, EDR, and SOAR platforms (SentinelOne, Google SecOps/SOAR, Azure Sentinel, AlienVault, NetEnrich, Seceon). </li>
-          <li>Support incident response operations, including containment, remediation coordination, and development of playbooks and post-incident documentation (also took charge of what we call “enhanced monitoring” where we pay special attention to client environment directly, not utilizing SOAR platforms, providing daily updates and immediate response on any suspicious indications/flagged activity, followed by verification by phone or Teams with the client).</li>
-          <li>Manage security tickets and client inquiries (Zoho Suite and ConnectWise ticketing systems), deliver technical analysis, actionable recommendations, and clear stakeholder communication (through phone, Microsoft Teams, and messaging/tickets).</li>
-        </ul>
-      </article>
-
-      <article class="timeline-item">
-        <div class="timeline-header">
-          <h3 class="item-title">Technical Account Manager</h3>
-          <span class="item-org">Cybriant</span>
-          <span class="item-dates">Apr 2023 – Aug 2024</span>
-        </div>
-        <ul class="item-list">
-          <li>Delivered cybersecurity recommendations aligned with client risk, operations, and regulatory requirements.</li>
-          <li>Supported identification and upsell of security services, strengthening client security maturity and relationships.</li>
-          <li>Built and delivered weekly client security reports, including alert volume summaries, open tickets, environment health checks, anomaly detection, and alert/event trend analysis.</li>
-          <li>Acted as a liaison between clients, Sales, Engineering, and SOC teams to manage requests, resolve issues, and deliver tailored security services.</li>
-        </ul>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-
-	<!-- Additional Experience College -->
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Academic & Applied Experience</h2>
-
-    <ul class="item-list">
-      <li>
-        Developed GRC and security deliverables including vulnerability assessments, enterprise policies and procedures,
-        business impact analyses (BIA), SIEM evaluations, and incident response reports through graduate coursework and projects.
-      </li>
-
-      <li>
-        Gained hands-on experience using Clearwater IRM for risk and compliance analysis, including asset inventories,
-        risk modeling, risk scoring, and defined risk response strategies.
-      </li>
-
-      <li>
-        Designed and documented network security architectures, including firewall configurations, VPN implementations,
-        and secure remote access strategies with cost–benefit analysis.
-      </li>
-
-      <li>
-        Conducted tabletop incident response exercises and produced formal after-action (hot wash) reports identifying
-        gaps, risks, and remediation recommendations.
-      </li>
-
-      <li>
-        Authored a white paper on AI Governance, Risk, and Compliance titled 
-        <em>“Building a Framework for Responsible Enterprise AI,”</em> analyzing regulatory gaps and proposing a
-        practical governance framework (also published as a professional article).
-      </li>
-
-      <li>
-        Exposure to key frameworks including NIST CSF, NIST SP 800-53, and MITRE ATT&CK, with additional independent
-        study of NIST SP 800-82, NIST SP 800-63, TSA Security Directives, and MTSA.
-      </li>
-    </ul>
-  </div>
-</section>
-	  
-    <!-- Skills -->
-    <section class="section">
+    <!-- Publications -->
+    <section class="section" id="publications">
       <div class="container">
-        <h2 class="section-title">Skills & Abilities</h2>
-        <div class="pill-grid">
-          <span class="pill">GRC</span>
-  	  <span class="pill">Risk Assessments</span>
-  	  <span class="pill">Policy & Procedure Development</span>
-  	  <span class="pill">SOC Operations</span>
-  	  <span class="pill">Incident Response</span>
-  	  <span class="pill">SIEM</span>
-  	  <span class="pill">SOAR</span>
-  	  <span class="pill">Threat Hunting</span>
-	  <span class="pill">Audit Support</span>
- 	  <span class="pill">Compliance Frameworks</span>
-        </div>
+        <h2 class="section-title">Publications</h2>
+        <ul class="publication-list">
+          <li class="publication-item">
+            <h3>White Paper: Building a Framework for Responsible Enterprise AI</h3>
+            <p class="project-meta">Published on LinkedIn · 2026</p>
+            <p>Analyzed regulatory gaps and emerging risks in enterprise AI and proposed a practical AI governance framework with a control table; submitted for academic publication.</p>
+            <div class="project-links">
+              <a href="/grc-ai-whitepaper/" class="project-link">Read on this site</a>
+            </div>
+          </li>
+          <li class="publication-item">
+            <h3>Defensive Analysis: AD CS ESC8</h3>
+            <p class="project-meta">Published on LinkedIn · 2026</p>
+            <p>Researched Active Directory Certificate Services relay attacks (ESC8) after a workplace penetration test and published the log sources, indicators, and investigation questions defenders can use.</p>
+            <div class="project-links">
+              <a href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" class="project-link" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
-
 
     <!-- Additional Info / Contact -->
-    <section class="section section-alt">
+    <section class="section section-alt" id="contact">
       <div class="container">
         <h2 class="section-title">Additional Information</h2>
         <ul class="info-list">
           <li>Languages: English (Native)</li>
-          <li>Availability: Open to on-site, hybrid, and remote projects and collaborations</li>
+          <li>Availability: Open to on-site, hybrid, and remote roles and collaborations</li>
           <li>Security Clearance: Eligible for security clearance</li>
         </ul>
         <div class="cta-row">
-          <p>Interested in working together on InfoSec, GRC, risk, or privacy initiatives?</p>
-          <a href="mailto:terrellgrenyion@hotmail.com" class="btn primary-btn" id="get-in-touch-btn">Get in Touch</a>
+          <p>Interested in working together on security operations, vulnerability management, automation, or GRC?</p>
+          <a href="mailto:terrellgrenyion@gmail.com" class="btn primary-btn">Get in Touch</a>
         </div>
       </div>
     </section>
@@ -322,252 +339,8 @@
     <div class="container footer-inner">
       <span>&copy; <span id="year"></span> Terrell Grenyion</span>
       <span class="divider">•</span>
-      <span>GRC • Risk • Privacy • Security Operations</span>
+      <span>Security Operations • Vulnerability Management • Automation • GRC</span>
     </div>
   </footer>
-  <div class="captcha-backdrop" id="captcha-backdrop" aria-hidden="true">
-  <div class="captcha-modal">
-    <h2 class="captcha-title">Quick human check</h2>
-    <p class="captcha-text">
-      Before you get in touch, please answer this:
-    </p>
-    <p class="captcha-question" id="captcha-question"></p>
-
-    <input
-      type="text"
-      id="captcha-answer"
-      class="captcha-input"
-      placeholder="Type your answer"
-      autocomplete="off"
-    />
-
-    <div class="captcha-actions">
-      <button class="btn primary-btn" id="captcha-submit">Verify</button>
-      <button class="btn ghost-btn" id="captcha-cancel">Cancel</button>
-    </div>
-
-    <p class="captcha-error" id="captcha-error"></p>
-  </div>
-  <script>
-  // Footer year
-  const yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-
-  // One-time captcha + human verification
-  (function () {
-    const HUMAN_KEY = "humanVerified";
-    let isHuman = sessionStorage.getItem(HUMAN_KEY) === "true";
-    let pendingCallback = null;
-
-    const backdrop = document.getElementById("captcha-backdrop");
-    const questionEl = document.getElementById("captcha-question");
-    const answerInput = document.getElementById("captcha-answer");
-    const errorEl = document.getElementById("captcha-error");
-    const submitBtn = document.getElementById("captcha-submit");
-    const cancelBtn = document.getElementById("captcha-cancel");
-
-    function applyHumanFlag() {
-      isHuman = true;
-      sessionStorage.setItem(HUMAN_KEY, "true");
-      document.body.classList.add("human-verified");
-    }
-
-    // If already verified this session, unlock immediately
-    if (isHuman) {
-      applyHumanFlag();
-    }
-
-    let correctAnswer = null;
-
-    function generateQuestion() {
-      const a = Math.floor(Math.random() * 6) + 3; // 3–8
-      const b = Math.floor(Math.random() * 6) + 3; // 3–8
-      correctAnswer = String(a + b);
-      questionEl.textContent = `What is ${a} + ${b}?`;
-      answerInput.value = "";
-      errorEl.textContent = "";
-    }
-
-    function openCaptcha(callback) {
-      if (isHuman) {
-        // already verified, just run the callback
-        if (callback) callback();
-        return;
-      }
-
-      pendingCallback = callback || null;
-      generateQuestion();
-      backdrop.classList.add("active");
-      backdrop.setAttribute("aria-hidden", "false");
-      setTimeout(() => answerInput.focus(), 50);
-    }
-
-    function closeCaptcha() {
-      backdrop.classList.remove("active");
-      backdrop.setAttribute("aria-hidden", "true");
-    }
-
-    if (submitBtn && cancelBtn && backdrop) {
-      submitBtn.addEventListener("click", () => {
-        const userAnswer = (answerInput.value || "").trim();
-        if (userAnswer === correctAnswer) {
-          applyHumanFlag();
-          closeCaptcha();
-          if (pendingCallback) {
-            const cb = pendingCallback;
-            pendingCallback = null;
-            cb();
-          }
-        } else {
-          errorEl.textContent = "That answer wasn't quite right. Try again.";
-        }
-      });
-
-      cancelBtn.addEventListener("click", () => {
-        pendingCallback = null;
-        closeCaptcha();
-      });
-
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && backdrop.classList.contains("active")) {
-          pendingCallback = null;
-          closeCaptcha();
-        }
-      });
-    }
-
-    // Helper: gate an action behind captcha
-    function requireHuman(callback) {
-      if (isHuman) {
-        if (callback) callback();
-      } else {
-        openCaptcha(callback);
-      }
-    }
-
-    // === Attach to triggers ===
-
-    // 1) View Phone hover/tap (phone-cover)
-    const phoneCover = document.querySelector(".phone-hover-wrapper .phone-cover");
-    if (phoneCover) {
-      const phoneTrigger = (e) => {
-        if (!isHuman) {
-          // Stop click/tap from doing anything else
-          if (e.type === "click" || e.type === "touchstart") {
-            e.preventDefault();
-          }
-          requireHuman(() => {
-            // After verification, user can just hover normally
-          });
-        }
-      };
-
-      phoneCover.addEventListener("mouseenter", phoneTrigger);
-      phoneCover.addEventListener("click", phoneTrigger);
-      phoneCover.addEventListener("touchstart", phoneTrigger, { passive: false });
-    }
-
-    // 2) Email beside phone
-    const heroEmail = document.getElementById("hero-email");
-    if (heroEmail) {
-      heroEmail.addEventListener("click", (e) => {
-        if (!isHuman) {
-          e.preventDefault();
-          const href = heroEmail.href;
-          requireHuman(() => {
-            window.location.href = href;
-          });
-        }
-      });
-    }
-
-    // 3) "Contact me" button
-    const contactBtn = document.getElementById("contact-me-btn");
-    if (contactBtn) {
-      contactBtn.addEventListener("click", (e) => {
-        if (!isHuman) {
-          e.preventDefault();
-          const href = contactBtn.getAttribute("href");
-          requireHuman(() => {
-            if (href && href.startsWith("#")) {
-              const target = document.querySelector(href);
-              if (target) {
-                target.scrollIntoView({ behavior: "smooth" });
-              }
-            } else if (href) {
-              window.location.href = href;
-            }
-          });
-        }
-      });
-    }
-
-    // 4) "Get in touch" button
-    const getInTouchBtn = document.getElementById("get-in-touch-btn");
-    if (getInTouchBtn) {
-      getInTouchBtn.addEventListener("click", (e) => {
-        if (!isHuman) {
-          e.preventDefault();
-          const href = getInTouchBtn.getAttribute("href");
-          requireHuman(() => {
-            if (href && href.startsWith("#")) {
-              const target = document.querySelector(href);
-              if (target) {
-                target.scrollIntoView({ behavior: "smooth" });
-              }
-            } else if (href) {
-              window.location.href = href;
-            }
-          });
-        }
-      });
-    }
-  })();
-</script>
-  <script>
-    (function () {
-      const toggle = document.querySelector('.theme-toggle');
-      if (!toggle) return;
-
-      toggle.addEventListener('click', function () {
-        if (typeof window.__toggleTheme === 'function') {
-          window.__toggleTheme();
-        }
-      });
-    })();
-  </script>
-</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

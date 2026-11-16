@@ -9,52 +9,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Building a framework for responsible enterprise AI: a white paper by Terrell Grenyion on aligning governance, risk management, and compliance with emerging AI risks and regulations." />
+  <link rel="canonical" href="https://www.terrellgrenyion.com/grc-ai-whitepaper/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Terrell Grenyion" />
+  <meta property="og:title" content="Building a Framework for Responsible Enterprise AI" />
+  <meta property="og:description" content="A practical AI governance framework with a control table, by Terrell Grenyion." />
+  <meta property="og:url" content="https://www.terrellgrenyion.com/grc-ai-whitepaper/" />
+  <meta name="twitter:card" content="summary" />
 
-  <!-- Theme (session-persisted) -->
-  <script>
-    (function () {
-      const STORAGE_KEY = 'siteTheme';
-      const root = document.documentElement;
-
-      function apply(theme) {
-        if (theme === 'light') root.classList.add('theme-light');
-        else root.classList.remove('theme-light');
-      }
-
-      let stored = null;
-      try { stored = sessionStorage.getItem(STORAGE_KEY); } catch (e) { stored = null; }
-
-      if (stored === 'light' || stored === 'dark') apply(stored);
-      else apply('dark');
-
-      window.__setTheme = function (theme) {
-        apply(theme);
-        try { sessionStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
-      };
-
-      window.__toggleTheme = function () {
-        const isLight = !root.classList.contains('theme-light');
-        window.__setTheme(isLight ? 'light' : 'dark');
-      };
-    })();
-  </script>
-
-  <!-- Note: this file lives in /blog/, so use ../ -->
-  <link rel="stylesheet" href="../styles.css" />
+  <script src="/assets/js/theme.js"></script>
+  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo-mark">
+      <a class="logo-mark" href="/" aria-label="Terrell Grenyion — home">
         <span class="logo-symbol">&gt;</span>
         <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
-      </div>
+      </a>
 
-      <!-- Keep nav simple: no individual article links -->
-      <nav class="main-nav">
-        <a href="../" class="nav-link">Home</a>
-        <a href="../projects" class="nav-link">Projects</a>
-        <a href="../blog" class="nav-link">Blog</a>
+      <nav class="main-nav" aria-label="Main">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/blog/" class="nav-link active">Blog</a>
       </nav>
 
       <button class="theme-toggle" type="button" aria-label="Toggle color theme">
@@ -87,7 +68,7 @@
           </div>
 
           <div style="margin-top: 1rem;">
-            <a class="btn ghost-btn" href="../blog">← Back to Blog</a>
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
           </div>
 
           <section class="article-section" style="margin-top: 2rem;">
@@ -451,8 +432,8 @@
 </section>
 
           <div style="margin-top: 2rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
-            <a class="btn ghost-btn" href="../blog">← Back to Blog</a>
-            <a class="btn" href="../">Home</a>
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
+            <a class="btn primary-btn" href="/">Home</a>
           </div>
         </div>
 
@@ -464,23 +445,8 @@
     <div class="container footer-inner">
       <span>&copy; <span id="year"></span> Terrell Grenyion</span>
       <span class="divider">•</span>
-      <span>GRC • Risk • Privacy • Security Operations</span>
+      <span>Security Operations • Vulnerability Management • Automation • GRC</span>
     </div>
   </footer>
-
-  <script>
-    // Footer year
-    const yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    // Theme toggle
-    (function () {
-      const toggle = document.querySelector('.theme-toggle');
-      if (!toggle) return;
-      toggle.addEventListener('click', function () {
-        if (typeof window.__toggleTheme === 'function') window.__toggleTheme();
-      });
-    })();
-  </script>
 </body>
 </html>
