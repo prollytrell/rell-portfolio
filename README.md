@@ -1,6 +1,6 @@
 # terrellgrenyion.com
 
-Personal portfolio for **Terrell Grenyion**, Lead Security Analyst (security operations, vulnerability management, automation, and GRC).
+Personal portfolio for **Terrell Grenyion**, Lead Security Analyst focused on GRC, risk, and audit readiness, backed by hands-on security operations.
 
 Live site: <https://www.terrellgrenyion.com>
 
@@ -11,8 +11,8 @@ It's a plain static site (HTML, CSS, and a little JavaScript, with no build step
 ```
 /
 ├── index.html              Home: summary, experience, skills, certifications, education, publications
-├── projects/index.html     Projects: Professional, Lab & Engineering, Academic
-├── blog/index.html         Blog: post list (newest first)
+├── projects/index.html     Projects: Professional, Academic, Lab & Engineering
+├── blog/index.html         Blog: post list (GRC pieces first)
 ├── grc-ai-whitepaper/      White paper: Building a Framework for Responsible Enterprise AI
 ├── ugc/                    Separate UGC creator portfolio (self-contained; see ugc/README.md)
 ├── 404.html                Shown by GitHub Pages for missing pages
