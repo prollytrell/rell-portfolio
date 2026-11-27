@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patch Reports Are Only as Good as the Asset List Underneath | Terrell Grenyion</title>
+  <meta name="description" content="EDR, patch, and vulnerability tools each keep their own view of what exists. Reconciling them is the first job in vulnerability management." />
+  <link rel="canonical" href="https://www.terrellgrenyion.com/blog/asset-inventory-first/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Terrell Grenyion" />
+  <meta property="og:title" content="Patch Reports Are Only as Good as the Asset List Underneath" />
+  <meta property="og:description" content="EDR, patch, and vulnerability tools each keep their own view of what exists. Reconciling them is the first job in vulnerability management." />
+  <meta property="og:url" content="https://www.terrellgrenyion.com/blog/asset-inventory-first/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="/assets/js/theme.js"></script>
+  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=20261127" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="/" aria-label="Terrell Grenyion — home">
+        <span class="logo-symbol">&gt;</span>
+        <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/blog/" class="nav-link active">Blog</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">
+          <span class="theme-toggle-label-light">LIGHT</span>
+          <span class="theme-toggle-label-dark">DARK</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="blog-article" style="max-width: 860px; margin: 0 auto;">
+          <p class="hero-kicker">BLOG • VULNERABILITY MANAGEMENT • ASSETS</p>
+          <h1 class="hero-title">Patch Reports Are Only as Good as the Asset List Underneath</h1>
+          <p class="hero-subtitle">EDR, patch, and vulnerability tools each keep their own view of what exists. Reconciling them is the first job in vulnerability management.</p>
+
+          <div class="blog-meta" style="margin-top: 0.75rem;">
+            <span>By Terrell Grenyion</span>
+            <span class="divider">•</span>
+            <span>2026</span>
+            <span class="divider">•</span>
+            <span>~2 min read</span>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
+          </div>
+
+<section class="article-section" style="margin-top: 2rem;">
+  <p>So, I&#x27;ve become more involved in patching and vulnerability management at work. It&#x27;s been a great learning experience so far, and I want to share one of the first lessons that stood out. Before you can decide what patches to deploy or when, you need a clear picture of every device you&#x27;re responsible for.</p>
+  <p>That sounds simple, but most environments rely on several tools, and each one keeps its own view of what exists. An EDR console, a patch tool, and a vulnerability scanner can each show a slightly different picture depending on how often devices check in, when they were last online, and how each tool counts them. Understanding why those views differ was a bigger part of the work than I expected. A few habits I&#x27;ve picked up that help keep everything lined up:</p>
+  <ul class="project-bullets">
+    <li>Pick one source of truth for whether a device is active.</li>
+    <li>Compare other tools against it regularly.</li>
+    <li>Review devices that haven&#x27;t checked in for an extended period, then fix or retire them.</li>
+    <li>Follow up on anything that shows up in one tool but not another.</li>
+  </ul>
+  <p>This isn&#x27;t necessarily the most interesting part, but it reinforced something I&#x27;ve heard a lot in theory and now understand better. Asset management really is the foundation, as every patch report is only as accurate as the asset list underneath it.</p>
+  <p>If you&#x27;re looking to get into vulnerability management, I&#x27;d start here. Learn how to reconcile inventories across tools and ask why they are inconsistent. This is the foundation everything else depends on.</p>
+</section>
+
+          <p style="margin-top: 2rem; font-size: 0.85rem;"><em>Originally posted on <a href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em></p>
+
+          <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
+            <a class="btn primary-btn" href="/">Home</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> Terrell Grenyion</span>
+      <span class="divider">•</span>
+      <span>GRC • Risk • Audit Readiness • Security Operations</span>
+    </div>
+  </footer>
+</body>
+</html>
