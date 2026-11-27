@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IOC Searches Aren&#x27;t Threat Hunting (and Why That Matters) | Terrell Grenyion</title>
-  <meta name="description" content="Searching for known-bad indicators is valuable work, but threat hunting starts with a hypothesis about behavior. Examples of what is and isn&#x27;t hunting." />
+  <meta name="description" content="Searching for known-bad indicators is valuable work, but threat hunting begins with a hypothesis about behavior. Examples of what is, and isn&#x27;t, hunting." />
   <link rel="canonical" href="https://www.terrellgrenyion.com/blog/what-threat-hunting-is/" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Terrell Grenyion" />
   <meta property="og:title" content="IOC Searches Aren&#x27;t Threat Hunting (and Why That Matters)" />
-  <meta property="og:description" content="Searching for known-bad indicators is valuable work, but threat hunting starts with a hypothesis about behavior. Examples of what is and isn&#x27;t hunting." />
+  <meta property="og:description" content="Searching for known-bad indicators is valuable work, but threat hunting begins with a hypothesis about behavior. Examples of what is, and isn&#x27;t, hunting." />
   <meta property="og:url" content="https://www.terrellgrenyion.com/blog/what-threat-hunting-is/" />
   <meta name="twitter:card" content="summary" />
 
@@ -56,7 +56,7 @@
         <div class="blog-article" style="max-width: 860px; margin: 0 auto;">
           <p class="hero-kicker">BLOG • SECURITY OPERATIONS • THREAT HUNTING</p>
           <h1 class="hero-title">IOC Searches Aren&#x27;t Threat Hunting (and Why That Matters)</h1>
-          <p class="hero-subtitle">Searching for known-bad indicators is valuable work, but threat hunting starts with a hypothesis about behavior. Examples of what is and isn&#x27;t hunting.</p>
+          <p class="hero-subtitle">Searching for known-bad indicators is valuable work, but threat hunting begins with a hypothesis about behavior. Examples of what is, and isn&#x27;t, hunting.</p>
 
           <div class="blog-meta" style="margin-top: 0.75rem;">
             <span>By Terrell Grenyion</span>
@@ -71,15 +71,17 @@
           </div>
 
 <section class="article-section" style="margin-top: 2rem;">
-  <p>While studying for my CySA+, I&#x27;ve been spending more time learning what threat hunting really means beyond how the term is commonly used. A conversation with my mentor helped clarify something I hadn&#x27;t fully articulated before: a lot of work labeled as &quot;threat hunting&quot; is valuable, but it isn&#x27;t always hunting.</p>
-  <p>Many teams describe threat hunting as searching historical data for known bad indicators. Looking for connections to known C2 servers, malicious domains, compromised websites, or known malware files is important security work. It helps validate threat intelligence and confirm that nothing obvious was missed. But in those cases, we already know what we&#x27;re looking for, and that&#x27;s the difference.</p>
-  <p>Threat hunting isn&#x27;t about confirming known bad activity. It&#x27;s about proactively looking for unknown threats by forming hypotheses and testing them against behavior in the environment.</p>
-  <p>Instead of asking, &quot;Have we ever talked to this known bad IP?&quot; threat hunting asks questions such as:</p>
+  <p>While studying for the CySA+, I have spent more time examining what threat hunting means beyond how the term is commonly used. A conversation with my mentor helped me articulate something I had not fully put into words: much of the work labeled &quot;threat hunting&quot; is valuable, but it is not always hunting.</p>
+  <h2>Known-bad searches versus hunting</h2>
+  <p>Many teams describe threat hunting as searching historical data for known malicious indicators: connections to known command-and-control servers, malicious domains, compromised websites, or known malware files. This is important work. It validates threat intelligence and confirms that nothing obvious was missed. In each of those cases, however, we already know what we are looking for, and that is the key difference.</p>
+  <p>Threat hunting is not about confirming known malicious activity. It is about proactively searching for unknown threats by forming hypotheses and testing them against behavior in the environment.</p>
+  <h2>Hunting starts with a question</h2>
+  <p>Instead of asking, &quot;Have we ever communicated with this known malicious IP?&quot;, threat hunting asks questions such as:</p>
   <ul class="project-bullets">
     <li>Why is an HR endpoint communicating with production or finance systems?</li>
     <li>Why is an endpoint making regular outbound connections on a fixed schedule?</li>
-    <li>Why is large data being accessed or transferred outside business hours?</li>
-    <li>Why is traffic over port 443 not actually using TLS?</li>
+    <li>Why is a large volume of data being accessed or transferred outside business hours?</li>
+    <li>Why is traffic on port 443 not actually using TLS?</li>
     <li>Why are domain credentials being submitted to an external site at all?</li>
   </ul>
   <p>That shift from indicators to behavior is the core of real threat hunting.</p>
@@ -92,13 +94,14 @@
   </ul>
   <h2>Examples of what threat hunting is not</h2>
   <ul class="project-bullets">
-    <li>One-time searches for known bad IPs or domains.</li>
+    <li>One-time searches for known malicious IPs or domains.</li>
     <li>Verifying the presence of a known malware file.</li>
-    <li>IOC checks without a hypothesis.</li>
-    <li>Relying solely on threat intelligence lists.</li>
+    <li>Indicator-of-compromise (IOC) checks without a hypothesis.</li>
+    <li>Relying solely on threat intelligence feeds.</li>
   </ul>
-  <p>These activities are still critical. They just fall under mature security operations rather than threat hunting.</p>
-  <p>What really stood out to me is that threat hunting often uncovers more than external threats. It can surface internal misuse, over-permissioned accounts, risky automation, or workflows that introduce unintended risk. In that sense, threat hunting strengthens both detection capabilities and overall security posture.</p>
+  <p>These activities remain critical; they simply fall under mature security operations rather than threat hunting.</p>
+  <h2>Conclusion</h2>
+  <p>What stood out most to me is that threat hunting often uncovers more than external threats. It can surface internal misuse, over-permissioned accounts, risky automation, and workflows that introduce unintended risk. In that sense, threat hunting strengthens both detection capability and overall security posture.</p>
 </section>
 
           <p style="margin-top: 2rem; font-size: 0.85rem;"><em>Originally posted on <a href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em></p>

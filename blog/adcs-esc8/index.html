@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AD CS ESC8: What Defenders Should Look For | Terrell Grenyion</title>
-  <meta name="description" content="After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the log sources, indicators, and investigation questions defenders can use." />
+  <meta name="description" content="After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the indicators and investigation questions defenders can use." />
   <link rel="canonical" href="https://www.terrellgrenyion.com/blog/adcs-esc8/" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Terrell Grenyion" />
   <meta property="og:title" content="AD CS ESC8: What Defenders Should Look For" />
-  <meta property="og:description" content="After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the log sources, indicators, and investigation questions defenders can use." />
+  <meta property="og:description" content="After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the indicators and investigation questions defenders can use." />
   <meta property="og:url" content="https://www.terrellgrenyion.com/blog/adcs-esc8/" />
   <meta name="twitter:card" content="summary" />
 
@@ -56,14 +56,14 @@
         <div class="blog-article" style="max-width: 860px; margin: 0 auto;">
           <p class="hero-kicker">BLOG • DEFENSIVE ANALYSIS • ACTIVE DIRECTORY</p>
           <h1 class="hero-title">AD CS ESC8: What Defenders Should Look For</h1>
-          <p class="hero-subtitle">After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the log sources, indicators, and investigation questions defenders can use.</p>
+          <p class="hero-subtitle">After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the indicators and investigation questions defenders can use.</p>
 
           <div class="blog-meta" style="margin-top: 0.75rem;">
             <span>By Terrell Grenyion</span>
             <span class="divider">•</span>
             <span>2026</span>
             <span class="divider">•</span>
-            <span>~3 min read</span>
+            <span>~4 min read</span>
           </div>
 
           <div style="margin-top: 1rem;">
@@ -71,30 +71,34 @@
           </div>
 
 <section class="article-section" style="margin-top: 2rem;">
-  <p>Recently, I was tasked with an assignment that required me to research and understand ESC8 attacks and how they&#x27;re conducted. Going through this was a good reminder of how subtle some attack paths can be, especially when they abuse legitimate infrastructure instead of relying on obvious malware.</p>
-  <p>At a high level, ESC8 attacks abuse Active Directory Certificate Services (AD CS) by leveraging misconfigurations that allow an attacker to obtain certificate-based authentication material they shouldn&#x27;t have access to. Instead of exploiting a vulnerability in the traditional sense, the attacker abuses trust.</p>
-  <p>ESC8 can be conducted in a few different ways. In some cases, an attacker is able to request a certificate on behalf of a privileged account due to overly permissive template settings. In others, the attack relies on coercing authentication from a machine account and relaying that authentication to the certificate authority to obtain a usable certificate.</p>
-  <p>This attack emphasizes how much visibility and context matter. Because certificates are a legitimate authentication mechanism, the resulting access often looks clean. That&#x27;s what makes this class of attacks particularly dangerous, and you must look beyond traditional indicators.</p>
+  <p>I was recently tasked with researching ESC8 attacks and how they are conducted. The assignment was a useful reminder of how subtle some attack paths can be, particularly those that abuse legitimate infrastructure rather than relying on obvious malware.</p>
+  <h2>What ESC8 is</h2>
+  <p>ESC8 targets Active Directory Certificate Services (AD CS), the component many Windows environments use to issue certificates. Rather than exploiting a software vulnerability in the traditional sense, the attacker abuses trust to obtain certificate-based authentication material they should not have.</p>
+  <p>Specifically, ESC8 abuses the AD CS web enrollment endpoints, which accept NTLM authentication and are often not configured to block relay. The attacker coerces a machine account, sometimes a domain controller, into authenticating to a system the attacker controls, then relays that authentication to the certificate authority&#x27;s web enrollment service. The certificate authority issues a valid certificate for the coerced account, which the attacker can then use to authenticate as that machine.</p>
+  <p>ESC8 is one of several AD CS escalation paths. A related path, ESC1, instead abuses overly permissive certificate templates to request a certificate on behalf of a privileged account. Both end in the same place: legitimate certificates in the wrong hands.</p>
+  <h2>Why it is hard to detect</h2>
+  <p>This class of attack highlights how much visibility and context matter. Because certificates are a legitimate authentication mechanism, the resulting access often looks clean. That is what makes these attacks particularly dangerous, and why defenders must look beyond traditional indicators.</p>
   <h2>Indicators worth correlating</h2>
-  <p>Some of the indicators that become more meaningful when viewed together:</p>
+  <p>Several indicators become more meaningful when viewed together:</p>
   <ul class="project-bullets">
     <li>Unusual certificate requests.</li>
-    <li>Certificate enrollments tied to accounts that don&#x27;t normally request them.</li>
-    <li>Authentication activity using certificates where passwords are typically used.</li>
+    <li>Certificate enrollments tied to accounts that do not normally request them.</li>
+    <li>Certificate-based authentication where passwords are typically used.</li>
     <li>Requests originating from unexpected systems or network segments.</li>
   </ul>
-  <p>These matter most when any of them are followed by lateral movement or privileged access shortly afterward.</p>
+  <p>These deserve the most attention when any of them is followed shortly by lateral movement or privileged access.</p>
   <h2>Defensive takeaways</h2>
-  <p>This task reinforced an important lesson for me in that detection isn&#x27;t just about alerts. It&#x27;s about understanding normal behavior well enough to recognize when something doesn&#x27;t belong. From a defensive standpoint, the biggest takeaway was the importance of reviewing AD CS configurations regularly. Understanding which certificate templates exist, why they exist, and who can enroll in them matters a lot. Visibility into certificate issuance, enrollment failures, and authentication events tied to certificates is critical.</p>
+  <p>This research reinforced that detection is not only about alerts. It is about understanding normal behavior well enough to recognize what does not belong. The most important defensive practice is reviewing AD CS configurations regularly: which certificate templates and enrollment services exist, why they exist, and who can use them. Visibility into certificate issuance, enrollment failures, and certificate-based authentication events is critical.</p>
   <h2>Questions to ask during an investigation</h2>
-  <p>Good detection also comes from asking better questions:</p>
+  <p>Effective detection also comes from asking better questions:</p>
   <ul class="project-bullets">
-    <li>Which systems normally talk to the certificate authority?</li>
+    <li>Which systems normally communicate with the certificate authority?</li>
     <li>Which accounts typically use certificate-based authentication?</li>
-    <li>What does normal issuance volume look like?</li>
+    <li>What does normal certificate issuance volume look like?</li>
   </ul>
-  <p>Without that baseline, it&#x27;s difficult to spot abuse when it happens, especially in environments that rely heavily on certificates.</p>
-  <p>Working through this research helped me better understand how certificate abuse actually shows up in practice. It&#x27;s one thing to know that certificate abuse exists. It&#x27;s another to understand how it would actually appear in logs, what questions to ask during an investigation, and why these attacks can be so difficult to detect.</p>
+  <p>Without that baseline, abuse is difficult to spot, especially in environments that rely heavily on certificates.</p>
+  <h2>Conclusion</h2>
+  <p>Working through this research clarified how certificate abuse actually appears in practice. Knowing that certificate abuse exists is one thing. Understanding how it would surface in logs, which questions to ask during an investigation, and why it is so difficult to detect is another.</p>
 </section>
 
           <p style="margin-top: 2rem; font-size: 0.85rem;"><em>Originally posted on <a href="https://lnkd.in/p/gr_VkBSz" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em></p>

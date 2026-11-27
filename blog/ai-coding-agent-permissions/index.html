@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>How Much Trust Should an AI Coding Agent Get? | Terrell Grenyion</title>
-  <meta name="description" content="AI coding agents ask for access to code, files, and environments. Here&#x27;s why that warrants least privilege, segmentation, and a human in the loop." />
+  <meta name="description" content="AI coding agents request access to code, files, and environments. A recent production database deletion shows why that access warrants least privilege, segmentation, and human oversight." />
   <link rel="canonical" href="https://www.terrellgrenyion.com/blog/ai-coding-agent-permissions/" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Terrell Grenyion" />
   <meta property="og:title" content="How Much Trust Should an AI Coding Agent Get?" />
-  <meta property="og:description" content="AI coding agents ask for access to code, files, and environments. Here&#x27;s why that warrants least privilege, segmentation, and a human in the loop." />
+  <meta property="og:description" content="AI coding agents request access to code, files, and environments. A recent production database deletion shows why that access warrants least privilege, segmentation, and human oversight." />
   <meta property="og:url" content="https://www.terrellgrenyion.com/blog/ai-coding-agent-permissions/" />
   <meta name="twitter:card" content="summary" />
 
@@ -56,7 +56,7 @@
         <div class="blog-article" style="max-width: 860px; margin: 0 auto;">
           <p class="hero-kicker">BLOG • AI SECURITY • LEAST PRIVILEGE</p>
           <h1 class="hero-title">How Much Trust Should an AI Coding Agent Get?</h1>
-          <p class="hero-subtitle">AI coding agents ask for access to code, files, and environments. Here&#x27;s why that warrants least privilege, segmentation, and a human in the loop.</p>
+          <p class="hero-subtitle">AI coding agents request access to code, files, and environments. A recent production database deletion shows why that access warrants least privilege, segmentation, and human oversight.</p>
 
           <div class="blog-meta" style="margin-top: 0.75rem;">
             <span>By Terrell Grenyion</span>
@@ -71,29 +71,32 @@
           </div>
 
 <section class="article-section" style="margin-top: 2rem;">
-  <p>My best friend recently asked me about the AI tools I&#x27;ve been exploring and suggested I look into Claude Code. This wasn&#x27;t surprising as Claude&#x27;s been exploding in popularity recently. He mentioned he was thinking about putting it on his main computer and asked if I would ever think about doing the same. I immediately said:</p>
-  <p>&quot;Hell no. Absolutely not.&quot;</p>
-  <p>He asked why, and my explanation was blunt. It asks for far too much of my trust. These tools are very powerful, but they also require a lot of permissions. Often, they need to see your code, files, working environment, and even your production processes. At that point, it&#x27;s not a tool. You&#x27;re allowing it to take action and make changes.</p>
-  <p>When something has that level of access, there&#x27;s a lot that could potentially go wrong:</p>
+  <p>A close friend recently asked about the AI tools I have been exploring and suggested I try Claude Code, which has grown rapidly in popularity. He was considering installing it on his primary computer and asked whether I would do the same. My answer was immediate: absolutely not.</p>
+  <h2>The problem is trust</h2>
+  <p>When he asked why, my explanation was direct. These tools ask for a great deal of trust. They are powerful, but they also require extensive permissions. They often need visibility into your code, files, working environment, and sometimes production processes. At that point, it is no longer just a tool; you are allowing it to take action and make changes on your behalf.</p>
+  <p>With that level of access, a great deal can go wrong:</p>
   <ul class="project-bullets">
-    <li>Unintended code execution</li>
-    <li>Data exposure or leakage</li>
-    <li>Breaches of privacy</li>
-    <li>Over-permissioned access to sensitive systems</li>
-    <li>Silent failures or incorrect assumptions</li>
-    <li>And in worst cases, direct impact to production environments</li>
+    <li>Unintended code execution.</li>
+    <li>Data exposure or leakage.</li>
+    <li>Breaches of privacy.</li>
+    <li>Over-permissioned access to sensitive systems.</li>
+    <li>Silent failures or incorrect assumptions.</li>
+    <li>In the worst cases, direct impact to production environments.</li>
   </ul>
-  <p>That&#x27;s not even factoring in supply chain risks, prompt injection, or the possibility of compromised dependencies.</p>
-  <p>Then a couple hours later, I started seeing the story everywhere about a Claude-powered AI coding agent deleting an entire company&#x27;s production database and its backups in seconds. I sent it to him with the message: &quot;See what I&#x27;m saying?&quot;</p>
-  <p>I understand and see the value in AI. But I&#x27;m very cautious about how much authority I give these systems. If you&#x27;re going to use AI agents, especially with admin permissions, please take security seriously:</p>
+  <p>That is before accounting for supply chain risk, prompt injection, or compromised dependencies.</p>
+  <h2>A timely example</h2>
+  <p>A couple of hours after that conversation, I began seeing the same story everywhere: an AI coding agent, Cursor running Anthropic&#x27;s Claude Opus 4.6, had deleted a company&#x27;s entire production database, along with its backups, in seconds. I sent it to my friend with a short message: &quot;See what I&#x27;m saying?&quot;</p>
+  <h2>Recommendations</h2>
+  <p>I understand and see the value in AI, but I am cautious about how much authority I give these systems. Anyone using AI agents, particularly with administrative permissions, should treat security as a requirement:</p>
   <ul class="project-bullets">
-    <li>Follow least privilege. Don&#x27;t give it more permission than it absolutely needs.</li>
-    <li>Practice segmentation. Keep it away from production or sensitive environments.</li>
-    <li>Have off-site backups LLMs can&#x27;t reach.</li>
-    <li>Keep a human in the loop. Review prompts and code before execution.</li>
-    <li>Implement monitoring and logging. Know what it&#x27;s doing and when.</li>
+    <li><strong>Apply least privilege.</strong> Grant no more permission than the agent absolutely needs.</li>
+    <li><strong>Practice segmentation.</strong> Keep agents away from production and other sensitive environments.</li>
+    <li><strong>Protect backups.</strong> Maintain off-site backups that the agent cannot reach.</li>
+    <li><strong>Keep a human in the loop.</strong> Review prompts and code before execution.</li>
+    <li><strong>Monitor and log.</strong> Know what the agent is doing and when.</li>
   </ul>
-  <p>At the end of the day, these are still machines. When it comes to technology, it&#x27;s not a matter of if something breaks, but when.</p>
+  <h2>Conclusion</h2>
+  <p>These are still machines. With technology, the question is not whether something will break, but when.</p>
 </section>
 
           <p style="margin-top: 2rem; font-size: 0.85rem;"><em>Originally posted on <a href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em></p>
