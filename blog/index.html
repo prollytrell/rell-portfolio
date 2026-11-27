@@ -20,7 +20,7 @@
 
   <script src="/assets/js/theme.js"></script>
   <script src="/assets/js/site.js" defer></script>
-  <link rel="stylesheet" href="/styles.css?v=20261116b" />
+  <link rel="stylesheet" href="/styles.css?v=20261127" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
 </head>
@@ -56,7 +56,7 @@
         <p class="hero-kicker">WRITING</p>
         <h1 class="hero-title">Blog</h1>
         <p class="hero-subtitle">
-          Research and write-ups on GRC, AI governance, and defensive security.
+          Research and write-ups on GRC, AI governance, vulnerability management, and defensive security.
         </p>
       </div>
     </section>
@@ -64,14 +64,16 @@
     <section class="section">
       <div class="container blog-layout">
         <div class="blog-list">
-
           <!--
-            To add a post: copy one
+            To add a post: copy one <article class="blog-card"> block below and paste it
+            where it belongs (white paper first, then posts newest first). Full posts live
+            in /blog/<slug>/index.html; add each new URL to sitemap.xml.
+          -->
 
           <article class="blog-card">
             <header class="blog-card-header">
               <p class="hero-kicker">RESEARCH • AI GOVERNANCE</p>
-              <h2 class="blog-card-title">Governance, Risk, and Compliance with Artificial Intelligence</h2>
+              <h2 class="blog-card-title"><a href="/grc-ai-whitepaper/">Governance, Risk, and Compliance with Artificial Intelligence</a></h2>
               <p class="hero-subtitle">
                 Building a framework for responsible enterprise AI: aligning governance, risk management, and compliance
                 with emerging AI risks, regulations, and ethical expectations.
@@ -88,27 +90,151 @@
                 <a class="btn ghost-btn blog-toggle-btn" href="https://www.linkedin.com/pulse/governance-risk-compliance-artificial-intelligence-ai-grenyion-0edgc/" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
               </div>
             </header>
-          </article> <article class="blog-card"> block below, paste it at the TOP of this list
-            (newest first), and update the tag, title, summary, meta, and link.
-          -->
+          </article>
 
           <article class="blog-card">
             <header class="blog-card-header">
-              <p class="hero-kicker">DEFENSIVE ANALYSIS • ACTIVE DIRECTORY</p>
-              <h2 class="blog-card-title">AD CS ESC8: What Defenders Should Look For</h2>
+              <p class="hero-kicker">VULNERABILITY MANAGEMENT</p>
+              <h2 class="blog-card-title"><a href="/blog/cvss-vs-exploitation/">CVSS Tells You How Bad. Exploitation Tells You How Urgent.</a></h2>
               <p class="hero-subtitle">
-                After a workplace penetration test, I researched Active Directory Certificate Services relay attacks
-                (ESC8) and wrote up the log sources, indicators, and investigation questions defenders can use.
+                Why the only actively exploited vulnerability in Microsoft&#x27;s November 2026 Patch Tuesday was rated a 6.5, and how to prioritize patching beyond severity scores.
               </p>
               <div class="blog-meta">
                 <span>By Terrell Grenyion</span>
                 <span class="divider">•</span>
                 <span>2026</span>
                 <span class="divider">•</span>
-                <span>LinkedIn post</span>
+                <span>~3 min read</span>
               </div>
               <div class="blog-toggle-row">
+                <a class="btn ghost-btn blog-toggle-btn" href="/blog/cvss-vs-exploitation/">Read the post</a>
+                <a class="btn ghost-btn blog-toggle-btn" href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
+              </div>
+            </header>
+          </article>
+
+          <article class="blog-card">
+            <header class="blog-card-header">
+              <p class="hero-kicker">VULNERABILITY MANAGEMENT • ASSETS</p>
+              <h2 class="blog-card-title"><a href="/blog/asset-inventory-first/">Patch Reports Are Only as Good as the Asset List Underneath</a></h2>
+              <p class="hero-subtitle">
+                EDR, patch management, and vulnerability scanning tools each maintain their own view of the environment. Reconciling them is the first step in vulnerability management.
+              </p>
+              <div class="blog-meta">
+                <span>By Terrell Grenyion</span>
+                <span class="divider">•</span>
+                <span>2026</span>
+                <span class="divider">•</span>
+                <span>~2 min read</span>
+              </div>
+              <div class="blog-toggle-row">
+                <a class="btn ghost-btn blog-toggle-btn" href="/blog/asset-inventory-first/">Read the post</a>
+                <a class="btn ghost-btn blog-toggle-btn" href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
+              </div>
+            </header>
+          </article>
+
+          <article class="blog-card">
+            <header class="blog-card-header">
+              <p class="hero-kicker">AI GOVERNANCE • POLICY</p>
+              <h2 class="blog-card-title"><a href="/blog/ai-use-policy/">An AI Use Policy Should Guide Usage, Not Just Restrict It</a></h2>
+              <p class="hero-subtitle">
+                Lessons from drafting an AI use policy at work: enabling good use, data rules by data type, and human accountability matter more than a list of banned tools.
+              </p>
+              <div class="blog-meta">
+                <span>By Terrell Grenyion</span>
+                <span class="divider">•</span>
+                <span>2026</span>
+                <span class="divider">•</span>
+                <span>~2 min read</span>
+              </div>
+              <div class="blog-toggle-row">
+                <a class="btn ghost-btn blog-toggle-btn" href="/blog/ai-use-policy/">Read the post</a>
+                <a class="btn ghost-btn blog-toggle-btn" href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
+              </div>
+            </header>
+          </article>
+
+          <article class="blog-card">
+            <header class="blog-card-header">
+              <p class="hero-kicker">AI SECURITY • LEAST PRIVILEGE</p>
+              <h2 class="blog-card-title"><a href="/blog/ai-coding-agent-permissions/">How Much Trust Should an AI Coding Agent Get?</a></h2>
+              <p class="hero-subtitle">
+                AI coding agents request access to code, files, and environments. A recent production database deletion shows why that access warrants least privilege, segmentation, and human oversight.
+              </p>
+              <div class="blog-meta">
+                <span>By Terrell Grenyion</span>
+                <span class="divider">•</span>
+                <span>2026</span>
+                <span class="divider">•</span>
+                <span>~3 min read</span>
+              </div>
+              <div class="blog-toggle-row">
+                <a class="btn ghost-btn blog-toggle-btn" href="/blog/ai-coding-agent-permissions/">Read the post</a>
+                <a class="btn ghost-btn blog-toggle-btn" href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
+              </div>
+            </header>
+          </article>
+
+          <article class="blog-card">
+            <header class="blog-card-header">
+              <p class="hero-kicker">DEFENSIVE ANALYSIS • ACTIVE DIRECTORY</p>
+              <h2 class="blog-card-title"><a href="/blog/adcs-esc8/">AD CS ESC8: What Defenders Should Look For</a></h2>
+              <p class="hero-subtitle">
+                After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the indicators and investigation questions defenders can use.
+              </p>
+              <div class="blog-meta">
+                <span>By Terrell Grenyion</span>
+                <span class="divider">•</span>
+                <span>2026</span>
+                <span class="divider">•</span>
+                <span>~4 min read</span>
+              </div>
+              <div class="blog-toggle-row">
+                <a class="btn ghost-btn blog-toggle-btn" href="/blog/adcs-esc8/">Read the post</a>
                 <a class="btn ghost-btn blog-toggle-btn" href="https://lnkd.in/p/gr_VkBSz" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
+              </div>
+            </header>
+          </article>
+
+          <article class="blog-card">
+            <header class="blog-card-header">
+              <p class="hero-kicker">PRIVACY • ENDPOINT</p>
+              <h2 class="blog-card-title"><a href="/blog/privacy-vs-anonymity/">Privacy Is Not Anonymity: What VPNs and Incognito Mode Actually Do</a></h2>
+              <p class="hero-subtitle">
+                VPNs, private browsing, and hardened browsers each solve a different problem. Most people need privacy rather than anonymity, and common tools don&#x27;t always deliver what users assume.
+              </p>
+              <div class="blog-meta">
+                <span>By Terrell Grenyion</span>
+                <span class="divider">•</span>
+                <span>2026</span>
+                <span class="divider">•</span>
+                <span>~3 min read</span>
+              </div>
+              <div class="blog-toggle-row">
+                <a class="btn ghost-btn blog-toggle-btn" href="/blog/privacy-vs-anonymity/">Read the post</a>
+                <a class="btn ghost-btn blog-toggle-btn" href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
+              </div>
+            </header>
+          </article>
+
+          <article class="blog-card">
+            <header class="blog-card-header">
+              <p class="hero-kicker">SECURITY OPERATIONS • THREAT HUNTING</p>
+              <h2 class="blog-card-title"><a href="/blog/what-threat-hunting-is/">IOC Searches Aren&#x27;t Threat Hunting (and Why That Matters)</a></h2>
+              <p class="hero-subtitle">
+                Searching for known-bad indicators is valuable work, but threat hunting begins with a hypothesis about behavior. Examples of what is, and isn&#x27;t, hunting.
+              </p>
+              <div class="blog-meta">
+                <span>By Terrell Grenyion</span>
+                <span class="divider">•</span>
+                <span>2025</span>
+                <span class="divider">•</span>
+                <span>~3 min read</span>
+              </div>
+              <div class="blog-toggle-row">
+                <a class="btn ghost-btn blog-toggle-btn" href="/blog/what-threat-hunting-is/">Read the post</a>
+                <a class="btn ghost-btn blog-toggle-btn" href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">Read on LinkedIn</a>
               </div>
             </header>
           </article>

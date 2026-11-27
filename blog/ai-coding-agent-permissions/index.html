@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Much Trust Should an AI Coding Agent Get? | Terrell Grenyion</title>
+  <meta name="description" content="AI coding agents request access to code, files, and environments. A recent production database deletion shows why that access warrants least privilege, segmentation, and human oversight." />
+  <link rel="canonical" href="https://www.terrellgrenyion.com/blog/ai-coding-agent-permissions/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Terrell Grenyion" />
+  <meta property="og:title" content="How Much Trust Should an AI Coding Agent Get?" />
+  <meta property="og:description" content="AI coding agents request access to code, files, and environments. A recent production database deletion shows why that access warrants least privilege, segmentation, and human oversight." />
+  <meta property="og:url" content="https://www.terrellgrenyion.com/blog/ai-coding-agent-permissions/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="/assets/js/theme.js"></script>
+  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=20261127" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="/" aria-label="Terrell Grenyion — home">
+        <span class="logo-symbol">&gt;</span>
+        <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/blog/" class="nav-link active">Blog</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">
+          <span class="theme-toggle-label-light">LIGHT</span>
+          <span class="theme-toggle-label-dark">DARK</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="blog-article" style="max-width: 860px; margin: 0 auto;">
+          <p class="hero-kicker">BLOG • AI SECURITY • LEAST PRIVILEGE</p>
+          <h1 class="hero-title">How Much Trust Should an AI Coding Agent Get?</h1>
+          <p class="hero-subtitle">AI coding agents request access to code, files, and environments. A recent production database deletion shows why that access warrants least privilege, segmentation, and human oversight.</p>
+
+          <div class="blog-meta" style="margin-top: 0.75rem;">
+            <span>By Terrell Grenyion</span>
+            <span class="divider">•</span>
+            <span>2026</span>
+            <span class="divider">•</span>
+            <span>~3 min read</span>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
+          </div>
+
+<section class="article-section" style="margin-top: 2rem;">
+  <p>A close friend recently asked about the AI tools I have been exploring and suggested I try Claude Code, which has grown rapidly in popularity. He was considering installing it on his primary computer and asked whether I would do the same. My answer was immediate: absolutely not.</p>
+  <h2>The problem is trust</h2>
+  <p>When he asked why, my explanation was direct. These tools ask for a great deal of trust. They are powerful, but they also require extensive permissions. They often need visibility into your code, files, working environment, and sometimes production processes. At that point, it is no longer just a tool; you are allowing it to take action and make changes on your behalf.</p>
+  <p>With that level of access, a great deal can go wrong:</p>
+  <ul class="project-bullets">
+    <li>Unintended code execution.</li>
+    <li>Data exposure or leakage.</li>
+    <li>Breaches of privacy.</li>
+    <li>Over-permissioned access to sensitive systems.</li>
+    <li>Silent failures or incorrect assumptions.</li>
+    <li>In the worst cases, direct impact to production environments.</li>
+  </ul>
+  <p>That is before accounting for supply chain risk, prompt injection, or compromised dependencies.</p>
+  <h2>A timely example</h2>
+  <p>A couple of hours after that conversation, I began seeing the same story everywhere: an AI coding agent, Cursor running Anthropic&#x27;s Claude Opus 4.6, had deleted a company&#x27;s entire production database, along with its backups, in seconds. I sent it to my friend with a short message: &quot;See what I&#x27;m saying?&quot;</p>
+  <h2>Recommendations</h2>
+  <p>I understand and see the value in AI, but I am cautious about how much authority I give these systems. Anyone using AI agents, particularly with administrative permissions, should treat security as a requirement:</p>
+  <ul class="project-bullets">
+    <li><strong>Apply least privilege.</strong> Grant no more permission than the agent absolutely needs.</li>
+    <li><strong>Practice segmentation.</strong> Keep agents away from production and other sensitive environments.</li>
+    <li><strong>Protect backups.</strong> Maintain off-site backups that the agent cannot reach.</li>
+    <li><strong>Keep a human in the loop.</strong> Review prompts and code before execution.</li>
+    <li><strong>Monitor and log.</strong> Know what the agent is doing and when.</li>
+  </ul>
+  <h2>Conclusion</h2>
+  <p>These are still machines. With technology, the question is not whether something will break, but when.</p>
+</section>
+
+          <p style="margin-top: 2rem; font-size: 0.85rem;"><em>Originally posted on <a href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em></p>
+
+          <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
+            <a class="btn primary-btn" href="/">Home</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> Terrell Grenyion</span>
+      <span class="divider">•</span>
+      <span>GRC • Risk • Audit Readiness • Security Operations</span>
+    </div>
+  </footer>
+</body>
+</html>

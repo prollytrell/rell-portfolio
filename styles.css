@@ -1220,6 +1220,18 @@ a.logo-mark .logo-text {
   color: var(--text);
 }
 
+.blog-card-title a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+}
+
+.blog-card-title a:hover,
+.blog-card-title a:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 .coursework a {
   color: var(--accent);
 }

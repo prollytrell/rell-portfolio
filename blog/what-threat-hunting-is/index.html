@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IOC Searches Aren&#x27;t Threat Hunting (and Why That Matters) | Terrell Grenyion</title>
+  <meta name="description" content="Searching for known-bad indicators is valuable work, but threat hunting begins with a hypothesis about behavior. Examples of what is, and isn&#x27;t, hunting." />
+  <link rel="canonical" href="https://www.terrellgrenyion.com/blog/what-threat-hunting-is/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Terrell Grenyion" />
+  <meta property="og:title" content="IOC Searches Aren&#x27;t Threat Hunting (and Why That Matters)" />
+  <meta property="og:description" content="Searching for known-bad indicators is valuable work, but threat hunting begins with a hypothesis about behavior. Examples of what is, and isn&#x27;t, hunting." />
+  <meta property="og:url" content="https://www.terrellgrenyion.com/blog/what-threat-hunting-is/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="/assets/js/theme.js"></script>
+  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=20261127" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="/" aria-label="Terrell Grenyion — home">
+        <span class="logo-symbol">&gt;</span>
+        <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/blog/" class="nav-link active">Blog</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">
+          <span class="theme-toggle-label-light">LIGHT</span>
+          <span class="theme-toggle-label-dark">DARK</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="blog-article" style="max-width: 860px; margin: 0 auto;">
+          <p class="hero-kicker">BLOG • SECURITY OPERATIONS • THREAT HUNTING</p>
+          <h1 class="hero-title">IOC Searches Aren&#x27;t Threat Hunting (and Why That Matters)</h1>
+          <p class="hero-subtitle">Searching for known-bad indicators is valuable work, but threat hunting begins with a hypothesis about behavior. Examples of what is, and isn&#x27;t, hunting.</p>
+
+          <div class="blog-meta" style="margin-top: 0.75rem;">
+            <span>By Terrell Grenyion</span>
+            <span class="divider">•</span>
+            <span>2025</span>
+            <span class="divider">•</span>
+            <span>~3 min read</span>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
+          </div>
+
+<section class="article-section" style="margin-top: 2rem;">
+  <p>While studying for the CySA+, I have spent more time examining what threat hunting means beyond how the term is commonly used. A conversation with my mentor helped me articulate something I had not fully put into words: much of the work labeled &quot;threat hunting&quot; is valuable, but it is not always hunting.</p>
+  <h2>Known-bad searches versus hunting</h2>
+  <p>Many teams describe threat hunting as searching historical data for known malicious indicators: connections to known command-and-control servers, malicious domains, compromised websites, or known malware files. This is important work. It validates threat intelligence and confirms that nothing obvious was missed. In each of those cases, however, we already know what we are looking for, and that is the key difference.</p>
+  <p>Threat hunting is not about confirming known malicious activity. It is about proactively searching for unknown threats by forming hypotheses and testing them against behavior in the environment.</p>
+  <h2>Hunting starts with a question</h2>
+  <p>Instead of asking, &quot;Have we ever communicated with this known malicious IP?&quot;, threat hunting asks questions such as:</p>
+  <ul class="project-bullets">
+    <li>Why is an HR endpoint communicating with production or finance systems?</li>
+    <li>Why is an endpoint making regular outbound connections on a fixed schedule?</li>
+    <li>Why is a large volume of data being accessed or transferred outside business hours?</li>
+    <li>Why is traffic on port 443 not actually using TLS?</li>
+    <li>Why are domain credentials being submitted to an external site at all?</li>
+  </ul>
+  <p>That shift from indicators to behavior is the core of real threat hunting.</p>
+  <h2>Examples of threat hunting</h2>
+  <ul class="project-bullets">
+    <li>Investigating abnormal account creation or privilege changes.</li>
+    <li>Looking for lateral movement patterns.</li>
+    <li>Identifying beaconing behavior regardless of destination.</li>
+    <li>Validating whether existing detections or controls missed activity.</li>
+  </ul>
+  <h2>Examples of what threat hunting is not</h2>
+  <ul class="project-bullets">
+    <li>One-time searches for known malicious IPs or domains.</li>
+    <li>Verifying the presence of a known malware file.</li>
+    <li>Indicator-of-compromise (IOC) checks without a hypothesis.</li>
+    <li>Relying solely on threat intelligence feeds.</li>
+  </ul>
+  <p>These activities remain critical; they simply fall under mature security operations rather than threat hunting.</p>
+  <h2>Conclusion</h2>
+  <p>What stood out most to me is that threat hunting often uncovers more than external threats. It can surface internal misuse, over-permissioned accounts, risky automation, and workflows that introduce unintended risk. In that sense, threat hunting strengthens both detection capability and overall security posture.</p>
+</section>
+
+          <p style="margin-top: 2rem; font-size: 0.85rem;"><em>Originally posted on <a href="https://www.linkedin.com/in/terrell-grenyion/recent-activity/all/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em></p>
+
+          <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
+            <a class="btn primary-btn" href="/">Home</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> Terrell Grenyion</span>
+      <span class="divider">•</span>
+      <span>GRC • Risk • Audit Readiness • Security Operations</span>
+    </div>
+  </footer>
+</body>
+</html>

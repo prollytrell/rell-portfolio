@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AD CS ESC8: What Defenders Should Look For | Terrell Grenyion</title>
+  <meta name="description" content="After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the indicators and investigation questions defenders can use." />
+  <link rel="canonical" href="https://www.terrellgrenyion.com/blog/adcs-esc8/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Terrell Grenyion" />
+  <meta property="og:title" content="AD CS ESC8: What Defenders Should Look For" />
+  <meta property="og:description" content="After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the indicators and investigation questions defenders can use." />
+  <meta property="og:url" content="https://www.terrellgrenyion.com/blog/adcs-esc8/" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="/assets/js/theme.js"></script>
+  <script src="/assets/js/site.js" defer></script>
+  <link rel="stylesheet" href="/styles.css?v=20261127" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo-mark" href="/" aria-label="Terrell Grenyion — home">
+        <span class="logo-symbol">&gt;</span>
+        <span class="logo-text">Terrell<span class="accent">.GRENYION</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/blog/" class="nav-link active">Blog</a>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb"></span>
+        </span>
+        <span class="theme-toggle-label">
+          <span class="theme-toggle-label-light">LIGHT</span>
+          <span class="theme-toggle-label-dark">DARK</span>
+        </span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <div class="blog-article" style="max-width: 860px; margin: 0 auto;">
+          <p class="hero-kicker">BLOG • DEFENSIVE ANALYSIS • ACTIVE DIRECTORY</p>
+          <h1 class="hero-title">AD CS ESC8: What Defenders Should Look For</h1>
+          <p class="hero-subtitle">After a workplace penetration test, I researched Active Directory Certificate Services relay attacks (ESC8) and wrote up the indicators and investigation questions defenders can use.</p>
+
+          <div class="blog-meta" style="margin-top: 0.75rem;">
+            <span>By Terrell Grenyion</span>
+            <span class="divider">•</span>
+            <span>2026</span>
+            <span class="divider">•</span>
+            <span>~4 min read</span>
+          </div>
+
+          <div style="margin-top: 1rem;">
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
+          </div>
+
+<section class="article-section" style="margin-top: 2rem;">
+  <p>I was recently tasked with researching ESC8 attacks and how they are conducted. The assignment was a useful reminder of how subtle some attack paths can be, particularly those that abuse legitimate infrastructure rather than relying on obvious malware.</p>
+  <h2>What ESC8 is</h2>
+  <p>ESC8 targets Active Directory Certificate Services (AD CS), the component many Windows environments use to issue certificates. Rather than exploiting a software vulnerability in the traditional sense, the attacker abuses trust to obtain certificate-based authentication material they should not have.</p>
+  <p>Specifically, ESC8 abuses the AD CS web enrollment endpoints, which accept NTLM authentication and are often not configured to block relay. The attacker coerces a machine account, sometimes a domain controller, into authenticating to a system the attacker controls, then relays that authentication to the certificate authority&#x27;s web enrollment service. The certificate authority issues a valid certificate for the coerced account, which the attacker can then use to authenticate as that machine.</p>
+  <p>ESC8 is one of several AD CS escalation paths. A related path, ESC1, instead abuses overly permissive certificate templates to request a certificate on behalf of a privileged account. Both end in the same place: legitimate certificates in the wrong hands.</p>
+  <h2>Why it is hard to detect</h2>
+  <p>This class of attack highlights how much visibility and context matter. Because certificates are a legitimate authentication mechanism, the resulting access often looks clean. That is what makes these attacks particularly dangerous, and why defenders must look beyond traditional indicators.</p>
+  <h2>Indicators worth correlating</h2>
+  <p>Several indicators become more meaningful when viewed together:</p>
+  <ul class="project-bullets">
+    <li>Unusual certificate requests.</li>
+    <li>Certificate enrollments tied to accounts that do not normally request them.</li>
+    <li>Certificate-based authentication where passwords are typically used.</li>
+    <li>Requests originating from unexpected systems or network segments.</li>
+  </ul>
+  <p>These deserve the most attention when any of them is followed shortly by lateral movement or privileged access.</p>
+  <h2>Defensive takeaways</h2>
+  <p>This research reinforced that detection is not only about alerts. It is about understanding normal behavior well enough to recognize what does not belong. The most important defensive practice is reviewing AD CS configurations regularly: which certificate templates and enrollment services exist, why they exist, and who can use them. Visibility into certificate issuance, enrollment failures, and certificate-based authentication events is critical.</p>
+  <h2>Questions to ask during an investigation</h2>
+  <p>Effective detection also comes from asking better questions:</p>
+  <ul class="project-bullets">
+    <li>Which systems normally communicate with the certificate authority?</li>
+    <li>Which accounts typically use certificate-based authentication?</li>
+    <li>What does normal certificate issuance volume look like?</li>
+  </ul>
+  <p>Without that baseline, abuse is difficult to spot, especially in environments that rely heavily on certificates.</p>
+  <h2>Conclusion</h2>
+  <p>Working through this research clarified how certificate abuse actually appears in practice. Knowing that certificate abuse exists is one thing. Understanding how it would surface in logs, which questions to ask during an investigation, and why it is so difficult to detect is another.</p>
+</section>
+
+          <p style="margin-top: 2rem; font-size: 0.85rem;"><em>Originally posted on <a href="https://lnkd.in/p/gr_VkBSz" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</em></p>
+
+          <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <a class="btn ghost-btn" href="/blog/">← Back to Blog</a>
+            <a class="btn primary-btn" href="/">Home</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>&copy; <span id="year"></span> Terrell Grenyion</span>
+      <span class="divider">•</span>
+      <span>GRC • Risk • Audit Readiness • Security Operations</span>
+    </div>
+  </footer>
+</body>
+</html>
